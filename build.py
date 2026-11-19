@@ -383,7 +383,7 @@ def main():
     write("/robots.txt", "User-agent: *\nAllow: /\n" + (f"Sitemap: {absu('/sitemap.xml')}\n" if BASE else ""))
     write("/.nojekyll", "")
     if S.get("domain"):
-        write("/CNAME", S["domain"] + "\n")
+        write("/CNAME", S["domain"])  # same bytes as the CNAME GitHub created
     print(f"Built {len(pages)} pages into {OUT}" + ("" if BASE else "  (base_url not set yet: no sitemap/canonical)"))
 
 
