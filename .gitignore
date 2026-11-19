@@ -1,0 +1,6 @@
+_archive/
+.claude/
+.DS_Store
+__pycache__/
+2-research statement.pdf
+*.private.*

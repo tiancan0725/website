@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ECON 720 Concept Map</title>
+<meta name="description" content="Interactive concept map of ECON 720, Advanced Macroeconomic Theory I (PhD core, UNC Chapel Hill, Fall 2026) by Can Tian: how the topics connect, with links to the lecture handouts.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root{
+  --bg:#fbfaf7; --panel:#ffffff; --ink:#1f2328; --muted:#6a6f76; --line:#d9d6cf; --edge:#b9b5ac;
+  --in:#1d6fd6; --out:#d4462c; --chip:#f1efe9; --shadow:0 1px 3px rgba(0,0,0,.08);
+  --d0:#6b7280; --d1:#c08a00; --d2:#2563eb; --d3:#0f8a7e; --d4:#7c3aed; --d5:#db2777; --d6:#16a34a; --d7:#ea580c;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16181c; --panel:#1e2126; --ink:#e7e5e0; --muted:#9aa0a8; --line:#33373e; --edge:#4a4f57;
+    --in:#5aa2ff; --out:#ff7a5c; --chip:#2a2e35; --shadow:0 1px 3px rgba(0,0,0,.4);
+    --d0:#9ca3af; --d1:#e3b23c; --d2:#6b9bff; --d3:#2dc2b1; --d4:#a78bfa; --d5:#f472b6; --d6:#4ade80; --d7:#fb8a4c;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16181c; --panel:#1e2126; --ink:#e7e5e0; --muted:#9aa0a8; --line:#33373e; --edge:#4a4f57;
+  --in:#5aa2ff; --out:#ff7a5c; --chip:#2a2e35; --shadow:0 1px 3px rgba(0,0,0,.4);
+  --d0:#9ca3af; --d1:#e3b23c; --d2:#6b9bff; --d3:#2dc2b1; --d4:#a78bfa; --d5:#f472b6; --d6:#4ade80; --d7:#fb8a4c;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--panel)}
+header h1{font-size:16px;margin:0;font-weight:650;letter-spacing:.2px}
+header .sub{color:var(--muted);font-size:12.5px}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-left:auto}
+input[type=search],select{background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:5px 8px;font:inherit;font-size:13px}
+input[type=search]{width:190px}
+button{background:var(--chip);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:5px 9px;font:inherit;font-size:13px;cursor:pointer}
+button:hover{border-color:var(--muted)}
+button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px;border-bottom:1px solid var(--line);background:var(--panel)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;background:var(--chip);border:1px solid transparent;cursor:pointer;font-size:12.5px;user-select:none}
+.chip:hover{border-color:var(--line)}
+.chip.on{border-color:var(--ink)}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}
+.legend .key{margin-left:auto;display:flex;gap:12px;align-items:center;color:var(--muted);font-size:12px}
+.legend .key span{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+main{display:flex;height:calc(100% - 96px);min-height:520px}
+#graphwrap{flex:1;position:relative;overflow:hidden}
+svg{width:100%;height:100%;display:block;cursor:grab;touch-action:none}
+svg.panning{cursor:grabbing}
+.edge{stroke:var(--edge);stroke-width:1.1;fill:none;transition:opacity .15s}
+.edge.analog{stroke-dasharray:4 3}
+.edge.in{stroke:var(--in);stroke-width:2}
+.edge.out{stroke:var(--out);stroke-width:2}
+.edge.dim{opacity:.08}
+.thread{stroke:var(--ink);stroke-width:3;fill:none;opacity:.55;stroke-linecap:round}
+.node circle{stroke:var(--panel);stroke-width:1.5;cursor:pointer;transition:opacity .15s}
+.node.opt circle{stroke-dasharray:3 2;stroke:var(--ink);stroke-width:1}
+.node text{font-size:11px;fill:var(--ink);pointer-events:none;paint-order:stroke;stroke:var(--bg);stroke-width:3px;stroke-linejoin:round}
+.node.dim{opacity:.13}
+.node.sel circle{stroke:var(--ink);stroke-width:3}
+.node.hit circle{stroke:var(--ink);stroke-width:2.5}
+.node .ord{font-size:10px;font-weight:700;fill:var(--bg);stroke:none}
+aside{width:390px;max-width:44vw;border-left:1px solid var(--line);background:var(--panel);overflow-y:auto;padding:16px 18px 40px}
+aside h2{font-size:18px;margin:2px 0 4px;line-height:1.25}
+aside h3{font-size:11.5px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin:18px 0 6px;font-weight:650}
+aside p{margin:6px 0}
+.tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:999px;background:var(--chip);color:var(--muted);margin-right:4px}
+.eq{font-family:"STIX Two Math","Cambria Math","Times New Roman",serif;font-size:15px;background:var(--chip);border-radius:6px;padding:7px 10px;margin:8px 0;overflow-x:auto;white-space:nowrap}
+aside ul{margin:4px 0;padding-left:18px}
+aside li{margin:3px 0}
+a{color:var(--in)}
+.nb{display:flex;flex-wrap:wrap;gap:5px}
+.nb .chip{font-size:12px}
+.muted{color:var(--muted)}
+.small{font-size:12px}
+.help li{margin:4px 0}
+.zoom{position:absolute;right:12px;bottom:12px;display:flex;flex-direction:column;gap:4px}
+.zoom button{width:32px;height:32px;padding:0;font-size:16px}
+@media (max-width:820px){
+  main{flex-direction:column;height:auto}
+  #graphwrap{height:62vh;flex:none}
+  aside{width:100%;max-width:none;border-left:none;border-top:1px solid var(--line)}
+  input[type=search]{width:140px}
+  .legend .key{margin-left:0}
+}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>ECON 720 · Fall 2026 · Concept map</h1>
+    <div class="sub">Advanced Macroeconomic Theory I: how the ideas of the semester build on each other</div>
+  </div>
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search concepts…" aria-label="Search concepts">
+    <select id="thread" aria-label="Threads"><option value="">Threads through the course…</option></select>
+    <button id="layoutBtn" class="on" title="Arrange nodes in deck order, left to right">By deck</button>
+    <button id="reset">Reset</button>
+    <button id="theme" title="Toggle light/dark">◐</button>
+  </div>
+</header>
+<div class="legend" id="legend">
+  <div class="key">
+    <span><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="var(--edge)" stroke-width="1.5"/></svg>builds on</span>
+    <span><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="var(--edge)" stroke-width="1.5" stroke-dasharray="4 3"/></svg>discrete ↔ continuous</span>
+    <span><svg width="12" height="12"><circle cx="6" cy="6" r="4.5" fill="none" stroke="var(--ink)" stroke-dasharray="3 2"/></svg>optional / FYI</span>
+  </div>
+</div>
+<main>
+  <div id="graphwrap">
+    <svg id="svg" role="img" aria-label="Concept network">
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="var(--edge)"/></marker>
+        <marker id="arrIn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="var(--in)"/></marker>
+        <marker id="arrOut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="var(--out)"/></marker>
+      </defs>
+      <g id="vp"><g id="threadLayer"></g><g id="edges"></g><g id="nodes"></g></g>
+    </svg>
+    <div class="zoom"><button id="zin" aria-label="Zoom in">+</button><button id="zout" aria-label="Zoom out">−</button><button id="zfit" aria-label="Fit">⤢</button></div>
+  </div>
+  <aside id="panel"></aside>
+</main>
+
+<script>
+// ===================================================================== DATA
+// SHOW_LINKS: link page numbers and questions to the local PDFs (only works next to the course folders).
+// SHOW_KEYS: also link the answer keys. Both off for the copy shared with students.
+const SHOW_LINKS = true;   // website copy: handouts hosted on the site; problem sets/exams not posted
+const SHOW_KEYS = false;
+
+const DECKS = [
+  {name:"Introduction", file:"/files/econ720-2026/0-introduction.pdf", read:["AKMM Ch.1"]},
+  {name:"Malthus and Solow", file:"/files/econ720-2026/1-malthus-and-solow.pdf", read:["AKMM Ch.2, Ch.3"]},
+  {name:"DP and optimal growth", file:"/files/econ720-2026/2-dp-and-optimal-growth.pdf", read:["AKMM Ch.4","Krueger Ch.3.2, 4, 5","SLP Ch.2–4, 5.1"]},
+  {name:"Competitive equilibrium growth", file:"/files/econ720-2026/3-competitive-equilibrium-growth.pdf", read:["AKMM Ch.5","Krueger Ch.3.3–3.4"]},
+  {name:"Extensions of the NGM", file:"/files/econ720-2026/4-extensions-of-the-ngm.pdf", read:["AKMM Ch.4.3, Ch.11.3.1 (consumption-saving)","AKMM Ch.5.4.2, Ch.12.3 (labor supply)","AKMM Ch.15.1–15.4 (fiscal policy)"]},
+  {name:"Uncertainty and stochastic growth", file:"/files/econ720-2026/5-uncertainty-and-stochastic-growth.pdf", read:["AKMM Ch.7","Krueger Ch.6","For the curious: SLP Ch.8–9"]},
+  {name:"Extensions of the stochastic NGM", file:"/files/econ720-2026/6-extensions-of-the-stochastic-ngm.pdf", read:["AKMM Ch.7, Ch.11, Ch.14","Krueger Ch.2, Ch.6"]},
+  {name:"Continuous time", file:"/files/econ720-2026/7-continuous-time.pdf", read:["Acemoglu Ch.7 (optimal control), Ch.8 (NGM in continuous time)","AKMM Ch.9","Krueger Ch.9","Achdou, Han, Lasry, Lions & Moll (2022, REStud)"]}
+];
+
+const HW = {
+  "1.1":"CRS production function and zero profit","1.2":"Solow model with no growth","1.3":"Solow model with investment-specific technological progress","1.4":"Augmented Solow model (human capital)",
+  "2.1":"Discrete-time AK model","2.2":"Contraction mapping and value function iteration","2.3":"Habit formation","2.4":"Capacity utilization",
+  "3.1":"Representative agent in an endowment economy","3.2":"Habit formation in a competitive equilibrium","3.3":"Capital owned by firms",
+  "4.1":"Consumption-saving with growing debt","4.2":"Storage and financial autarky","4.3":"Capital adjustment cost","4.4":"Human capital and endogenous labor supply","4.5":"Not very heterogeneous firms",
+  "5.1":"Endogenous income process","5.2":"Job search","5.3":"Consumption smoothing with Arrow-Debreu market structure","5.4":"Do risk-averse households always hate risks?","5.5":"Investment shocks",
+  "6.1":"Who insures whom?","6.2":"Derivation of the HJB equation: job search","6.3":"Resource extraction","6.4":"Durable good","6.5":"Poisson income risk","6.6":"Growth with rare disasters"
+};
+const EX = {
+  "1.1":"Solow growth with differential saving rates","1.2":"Optimal growth with two-period time to build","1.3":"Learning by doing",
+  "2.1":"Stochastic growth with preference shocks","2.2":"Capital income taxes in a recursive competitive equilibrium","2.3":"A firm that cannot fire"
+};
+
+// kind: core | opt (optional) | fyi | next (next semester)
+// pages: [deck, from, to] in the handout PDFs; hw/ex: [key, parts]
+const NODES = [
+// ---- deck 0
+{id:"workflow",d:0,label:"Model workflow",pages:[[0,5,10]],
+ sum:"Set up the model (environment, agents, preferences, technology, equilibrium concept), solve it, then calibrate and use it. Every model this semester follows this template."},
+{id:"staticge",d:0,label:"Competitive equilibrium (static)",pages:[[0,11,20]],
+ sum:"A one-period economy: the household owns capital and labor, a firm rents them. An equilibrium is prices plus an allocation such that everyone optimizes taking prices as given and all markets clear. General-equilibrium effects: a shock to one market moves every price."},
+{id:"planner0",d:0,label:"Efficiency and the planner",pages:[[0,23,24]],
+ sum:"The social planner is a benchmark, not an agent: maximize welfare subject to technology and resources. When the first welfare theorem holds, solving the planner's problem is a shortcut to the equilibrium allocation."},
+{id:"calib",d:0,label:"Calibration",pages:[[0,21,22],[1,43,45],[3,48,56]],
+ sum:"Choose parameters so that the model matches data moments (α from the capital share, δ from investment and capital, β from the interest rate), then run experiments: transition paths, policy and value functions."},
+{id:"crs",d:0,label:"CRS and national accounts",pages:[[0,25,27]],
+ sum:"With constant returns and competitive factor markets, factor payments exhaust output (Euler's theorem): zero profit, and factor shares equal output elasticities. Why CRS is the default production function.",
+ hw:[["1.1"]]},
+// ---- deck 1
+{id:"malthus",d:1,label:"Malthusian model",pages:[[1,3,12]],
+ sum:"Fixed land and population that responds to income: better technology raises population, not living standards, and income per person returns to its steady state. Fits the world before 1800, fails after.",
+ more:["Malthus (1798), An Essay on the Principle of Population"]},
+{id:"kaldor",d:1,label:"Kaldor's growth facts",pages:[[1,14,20]],
+ sum:"Sustained growth in output and capital per worker; a stable interest rate, capital-output ratio and factor shares; large cross-country differences in growth rates. The targets for growth models.",
+ more:["Kaldor (1961), Capital accumulation and economic growth"]},
+{id:"solow",d:1,label:"Solow model",pages:[[1,21,32]],
+ eq:"k<sub>t+1</sub> = s f(k<sub>t</sub>) + (1−δ) k<sub>t</sub>",
+ sum:"A constant saving rate, competitive factor markets (r = f′(k), w = f(k) − k f′(k)). A unique steady state with global convergence.",
+ hw:[["1.2"]],ex:[["1.1"]],more:["Solow (1956, QJE)"]},
+{id:"golden",d:1,label:"Golden rule",pages:[[1,31,32]],
+ eq:"f′(k<sub>gold</sub>) = δ",
+ sum:"The saving rate that maximizes steady-state consumption. Compare the planner's modified golden rule, which discounts the future and so accumulates less capital.",
+ ex:[["1.1","(4)"]]},
+{id:"solowg",d:1,label:"Solow with growth, BGP",pages:[[1,33,42]],
+ sum:"Labor-augmenting technology and population growth: variables per effective worker converge to a steady state, while aggregates grow along a balanced growth path consistent with Kaldor's facts.",
+ hw:[["1.3"],["1.4"]]},
+{id:"growthacc",d:1,label:"Growth accounting",pages:[[1,46,48]],
+ sum:"Decompose output growth into contributions from capital, labor, and TFP (the Solow residual)."},
+// ---- deck 2
+{id:"ngm",d:2,label:"Neoclassical growth model",pages:[[2,2,9]],
+ sum:"Solow with optimal saving: households choose consumption to maximize Σ β<sup>t</sup> u(c<sub>t</sub>). The environment (technology, preferences, endowments) and the equilibrium concept come first."},
+{id:"planner",d:2,label:"Planner's problem, Pareto efficiency",pages:[[2,11,15]],
+ sum:"Feasibility and Pareto efficiency in the NGM; the planner's problem as the efficient benchmark that the competitive equilibrium will match."},
+{id:"euler",d:2,label:"Euler equation (KKT)",pages:[[2,16,29]],
+ eq:"u′(c<sub>t</sub>) = β u′(c<sub>t+1</sub>) f′(k<sub>t+1</sub>)",
+ sum:"Finite horizon, Lagrangian and KKT conditions. Give up a unit of consumption today, earn the marginal product, consume tomorrow: at an interior optimum the two sides balance.",
+ hw:[["2.1","(c)"],["2.3","(b)"]],ex:[["1.2","(2)"]]},
+{id:"backward",d:2,label:"Backward induction",pages:[[2,30,41]],
+ sum:"Solve from the last period back: value functions W<sub>n</sub>(k) with n periods left. The bridge from sequences to dynamic programming.",
+ hw:[["2.1","(a)(b)"]]},
+{id:"seq",d:2,label:"Infinite-horizon sequence problem",pages:[[2,42,50]],
+ sum:"Choose the whole sequence {k<sub>t+1</sub>}. The Euler equations are necessary; together with the transversality condition they are sufficient.",
+ hw:[["2.1","(c)(d)"]],ex:[["1.2","(1)(2)"]]},
+{id:"tvc",d:2,label:"Transversality condition",pages:[[2,51,61]],
+ eq:"lim<sub>t→∞</sub> β<sup>t</sup> u′(c<sub>t</sub>) f′(k<sub>t</sub>) k<sub>t</sub> = 0",
+ sum:"No value left 'at infinity'. It rules out Euler-equation paths that over-accumulate capital, and pins down the one optimal path.",
+ hw:[["2.1","(d)"]]},
+{id:"bellman",d:2,label:"Bellman equation",pages:[[2,62,75]],
+ eq:"V(k) = max<sub>k′</sub> { u(f(k) − k′) + β V(k′) }",
+ sum:"Principle of optimality: state variables summarize everything payoff-relevant, and a policy k′ = g(k) replaces sequences. The language for the rest of the semester.",
+ hw:[["2.1","(f)(g)"],["2.3","(c)"],["2.4"]],ex:[["1.2","(3)"],["1.3","(1)"]],more:["SLP Ch.4"]},
+{id:"contraction",d:2,label:"Contraction mapping, Blackwell",pages:[[2,76,78],[2,108,108]],
+ sum:"The Bellman operator is a contraction (Blackwell's conditions: monotonicity and discounting), so V exists, is unique, and iterating from any guess converges to it.",
+ hw:[["2.2","(a)–(c)"]],more:["SLP Ch.3"]},
+{id:"feuler",d:2,label:"Functional Euler equation",pages:[[2,79,81],[2,106,106]],
+ eq:"u′(c(k)) = β u′(c(g(k))) f′(g(k))",
+ sum:"FOC plus the envelope condition V′(k) = u′(c) f′(k). The cookbook used in every recursive problem since: FOC → envelope → Euler.",
+ hw:[["2.3","(d)"],["2.4"],["3.3"],["5.5"]],ex:[["1.2","(4)"],["1.3","(2)"],["2.1","(2)"],["2.2","(3)"],["2.3","(2)"]]},
+{id:"guess",d:2,label:"Guess and verify",pages:[[2,83,85]],
+ eq:"V(k) = A + B ln k,  g(k) = αβ k<sup>α</sup>",
+ sum:"Log utility, Cobb-Douglas, full depreciation: undetermined coefficients turn the Bellman equation into algebra. Reused for AK growth, preference shocks, and continuous time.",
+ hw:[["2.1","(f)(g)"]],ex:[["1.2","(5)"],["2.1","(3)"]]},
+{id:"vfi",d:2,label:"Value function iteration",pages:[[2,86,92],[5,30,30]],
+ sum:"Discretize the state, iterate V<sub>n+1</sub> = TV<sub>n</sub>, stop when successive iterates are close. The contraction gives a stopping rule with a known error bound and an iteration count.",
+ hw:[["2.2","(d)"],["2.4","(e)–(i), numerical"]]},
+{id:"mgr",d:2,label:"Steady state, modified golden rule",pages:[[2,95,97]],
+ eq:"β [f′(k<sub>SS</sub>) + 1 − δ] = 1",
+ sum:"The planner discounts, so k<sub>SS</sub> is below the golden rule. Monotone convergence from any k<sub>0</sub> > 0, unlike Solow's arbitrary saving rate.",
+ ex:[["1.1","(5)"],["1.2","(6)"],["2.2","(4)"]]},
+{id:"crrabgp",d:2,label:"Growth in the NGM: CRRA, BGP",pages:[[2,98,105]],
+ sum:"Balanced growth requires CRRA utility. Detrend by the growth rate; the Euler equation looks the same with an effective discount factor.",
+ hw:[["2.1"]]},
+// ---- deck 3
+{id:"ade",d:3,label:"Arrow-Debreu equilibrium",pages:[[3,5,21]],
+ eq:"p<sub>t</sub> = β<sup>t</sup> u′(c<sub>t</sub>) / u′(c<sub>0</sub>)",
+ sum:"All trade happens at t = 0 at prices p<sub>t</sub>; one lifetime budget constraint. The equilibrium allocation coincides with the planner's, and prices come from marginal utilities.",
+ hw:[["3.1","(a)"],["3.2","(a)–(d)"],["3.3","(a)–(c)"]]},
+{id:"sme",d:3,label:"Sequential markets equilibrium",pages:[[3,22,30]],
+ sum:"Markets open every period with one-period assets, a budget constraint each period, and a no-Ponzi condition. Same allocation as Arrow-Debreu, with gross interest rates R<sub>t+1</sub> = p<sub>t</sub>/p<sub>t+1</sub>.",
+ hw:[["3.1","(b)–(d)"],["3.2","(e)"],["3.3","(e)–(h)"]]},
+{id:"rce",d:3,label:"Recursive competitive equilibrium",pages:[[3,31,47]],
+ eq:"V(k,K) = max<sub>k′</sub> { u(r(K)k + w(K) − k′) + β V(k′, G(K)) }",
+ sum:"The household's Bellman equation with individual and aggregate states; prices as functions of K; consistency g(K,K) = G(K) ('big K, little k').",
+ hw:[["3.2","(f)–(h)"],["3.3","(i)–(k)"]],ex:[["2.2"]]},
+{id:"welfare",d:3,label:"Two welfare theorems",pages:[[3,57,58]],
+ sum:"First: competitive equilibria are Pareto efficient (complete markets, no externalities). Second: any efficient allocation can be supported as an equilibrium with transfers.",
+ hw:[["3.3","(d)"]]},
+// ---- deck 4
+{id:"cs",d:4,label:"Consumption-saving problem",pages:[[4,3,11],[4,15,15]],
+ eq:"u′(c<sub>t</sub>) = βR u′(c<sub>t+1</sub>)",
+ sum:"A household with income w<sub>t</sub> and gross return R. The no-Ponzi condition and the natural borrowing limit make the problem well defined.",
+ hw:[["4.1"]]},
+{id:"smooth",d:4,label:"Consumption smoothing, Jensen",pages:[[4,12,14]],
+ sum:"Concave utility means smooth consumption; βR ≠ 1 tilts the path. Jensen's inequality shows why, without first-order conditions."},
+{id:"pih",d:4,label:"MPC and permanent income",pages:[[4,19,19]],
+ sum:"Consumption tracks permanent income: a one-time windfall raises consumption only by its annuity value, while a permanent income change moves consumption one for one.",
+ hw:[["6.5","(d) optional"]]},
+{id:"complete",d:4,label:"AD markets and completeness",pages:[[4,16,18]],
+ sum:"The consumption-saving problem has an Arrow-Debreu counterpart; when are markets complete, and why does it matter for the equivalence of market structures?"},
+{id:"obc",d:4,label:"Occasionally binding constraints",pages:[[4,20,29]],
+ sum:"Kuhn-Tucker conditions inside the Bellman equation: a multiplier μ ≥ 0 with complementary slackness. μ enters the envelope condition only if the constraint involves the state. Examples: irreversible investment, borrowing limits.",
+ hw:[["4.2"]],ex:[["2.3"]]},
+{id:"tobinqd",d:4,label:"Tobin's q (discrete time)",pages:[[4,28,28]],
+ sum:"q is the marginal value of installed capital in units of consumption: invest when q > 1. Shows up with irreversibility and with adjustment costs.",
+ hw:[["4.3"]]},
+{id:"hetero",d:4,label:"Heterogeneous households",pages:[[4,30,35]],
+ sum:"With two types of households, the aggregate state is the wealth distribution, not just K, except in special cases where aggregation works.",
+ hw:[["4.5"]]},
+{id:"labor",d:4,label:"Endogenous labor supply",kind:"opt",pages:[[4,36,50]],
+ eq:"v′(l) / u′(c) = w = F<sub>l</sub>(k,l)",
+ sum:"Labor-leisure choice in the planner's problem, the SME and the RCE; how labor supply responds to wages.",
+ hw:[["4.4"],["5.4"],["5.5"]]},
+{id:"fiscal",d:4,label:"Taxes and Ricardian equivalence",kind:"opt",pages:[[4,51,65]],
+ sum:"Proportional capital taxes distort the Euler equation and lower K<sub>SS</sub>; lump-sum taxes do not. With lump-sum taxes, the timing of taxes vs. debt is irrelevant (Ricardian equivalence).",
+ ex:[["2.2"]],more:["Barro (1974, JPE)"]},
+{id:"hc",d:4,label:"Human capital",kind:"opt",pages:[[4,66,85]],
+ sum:"Two capital stocks, two Euler equations: the returns on physical and human capital must be equal. With CRS in (k, h), endogenous growth.",
+ hw:[["1.4"],["4.4"]]},
+{id:"crra",d:4,label:"CRRA: EIS and risk aversion",pages:[[4,86,87]],
+ eq:"u(c) = c<sup>1−σ</sup>/(1−σ):  EIS = 1/σ,  RRA = σ",
+ sum:"One parameter governs both the willingness to substitute over time and risk aversion; log utility is σ → 1."},
+// ---- deck 5
+{id:"uncert",d:5,label:"Histories, expected utility",pages:[[5,4,11]],
+ eq:"Σ<sub>t</sub> Σ<sub>s<sup>t</sup></sub> β<sup>t</sup> π(s<sup>t</sup>) u(c<sub>t</sub>(s<sup>t</sup>))",
+ sum:"Events, histories and their probabilities; plans contingent on histories; expected utility.",
+ hw:[["5.4"]]},
+{id:"markov",d:5,label:"Markov chains, AR(1)",pages:[[5,8,10]],
+ sum:"Transition probabilities π(s′|s); AR(1) processes for log TFP. Discrete Markov chains make expectations finite sums and computation easy.",
+ hw:[["5.1"]],ex:[["2.1"],["2.3"]]},
+{id:"ssp",d:5,label:"Stochastic NGM: sequential",pages:[[5,12,21]],
+ eq:"u′(c<sub>t</sub>) = β E<sub>t</sub>[ u′(c<sub>t+1</sub>) (z<sub>t+1</sub> f′(k<sub>t+1</sub>) + 1 − δ) ]",
+ sum:"The planner chooses contingent plans; stochastic Euler equations and an expected transversality condition."},
+{id:"sfe",d:5,label:"Stochastic NGM: recursive",pages:[[5,22,25]],
+ eq:"V(k,z) = max<sub>k′</sub> { u(c) + β E[ V(k′,z′) | z ] }",
+ sum:"The Bellman equation with an exogenous state; the functional Euler equation carries a conditional expectation.",
+ hw:[["5.5"]],ex:[["2.1","(1)(2)"]]},
+{id:"statdist",d:5,label:"Stationary distribution",pages:[[5,26,29]],
+ sum:"With shocks there is no steady state. In the exact log/Cobb-Douglas solution k′ = αβ z k<sup>α</sup>, ln k is an AR(1), and its stationary distribution replaces the steady state.",
+ ex:[["2.1","(3)"]]},
+{id:"ades",d:5,label:"Arrow-Debreu with uncertainty",pages:[[5,31,46]],
+ sum:"One price p<sub>t</sub>(s<sup>t</sup>) per date and history. State prices = probability × discounted ratio of marginal utilities.",
+ hw:[["5.3"]]},
+{id:"smes",d:5,label:"Arrow securities, complete markets",pages:[[5,47,54]],
+ sum:"An Arrow security pays one unit in a single next-period state. A full set of them makes markets complete, and the SME delivers the Arrow-Debreu allocation."},
+{id:"rces",d:5,label:"RCE with aggregate shocks",pages:[[5,55,60]],
+ sum:"States (k, K, z); prices r(K,z), w(K,z); the aggregate law of motion G(K,z) must be consistent with individual choices."},
+{id:"contshock",d:5,label:"Continuous shocks",kind:"fyi",pages:[[5,61,64]],
+ sum:"Continuous shock spaces need measure theory (SLP Ch.8–9), but the theory goes through; in practice, discretize back to a Markov chain."},
+{id:"loglin",d:5,label:"Log-linearization",kind:"opt",pages:[[5,65,73],[7,43,43]],
+ sum:"A local solution around the deterministic steady state: linear policy rules, fast and accurate near the steady state only. Global methods (VFI) vs. local ones."},
+// ---- deck 6
+{id:"risk",d:6,label:"Perfect risk sharing",pages:[[6,3,14]],
+ eq:"u′(c<sup>1</sup><sub>t</sub>(s<sup>t</sup>)) / u′(c<sup>2</sup><sub>t</sub>(s<sup>t</sup>)) = const.",
+ sum:"With common discounting and beliefs, ratios of marginal utilities are constant across histories: individual consumption depends only on the aggregate endowment. With CRRA, constant consumption shares (the Edgeworth box).",
+ hw:[["6.1","(a)–(d)"]]},
+{id:"arrow",d:6,label:"Arrow securities, wealth distribution",pages:[[6,15,28],[6,67,68]],
+ sum:"SME with a full set of Arrow securities = ADE. Natural debt limits; the RCE carries the wealth distribution as a state.",
+ hw:[["6.1","(e)"]],more:["Ljungqvist & Sargent, Recursive Macroeconomic Theory (complete markets chapter)"]},
+{id:"precaution",d:6,label:"Precautionary saving, prudence",pages:[[6,29,32]],
+ eq:"u‴ > 0  ⇒  E[u′(c)] > u′(E[c])",
+ sum:"Uninsurable risk plus prudence (convex marginal utility) raises saving. With quadratic utility, certainty equivalence: no precautionary saving.",
+ hw:[["6.1","(f)"],["6.5"]],more:["Kimball (1990, Econometrica)"]},
+{id:"buffer",d:6,label:"Borrowing constraints, buffer stock",pages:[[6,33,35]],
+ sum:"A borrowing limit binds at low wealth; households build a buffer stock of savings. Why it matters for consumption responses."},
+{id:"sdf",d:6,label:"Asset pricing, the SDF",pages:[[6,36,38]],
+ eq:"price = E[ m d ],  m = β u′(c′)/u′(c)",
+ sum:"Any asset is a bundle of Arrow securities; the stochastic discount factor prices it."},
+{id:"equity",d:6,label:"Equity premium puzzle",kind:"opt",pages:[[6,39,44]],
+ sum:"With smooth consumption, matching a 6–7% equity premium requires relative risk aversion around 17–19. Proposed resolutions.",
+ more:["Mehra & Prescott (1985, JME)"]},
+{id:"rbc",d:6,label:"Real business cycles",kind:"next",pages:[[6,45,65]],
+ sum:"The stochastic NGM with labor, calibrated: HP filter, business-cycle facts, impulse responses. Covered next semester.",
+ more:["Kydland & Prescott (1982, Econometrica)"]},
+// ---- deck 7
+{id:"ctsolow",d:7,label:"Solow in continuous time",pages:[[7,3,8]],
+ eq:"dk̃/dt = s f(k̃) − (n + g + δ) k̃",
+ sum:"Laws of motion become ODEs and growth rates add up. A phase line for global stability; with Cobb-Douglas, a closed-form path via κ = k̃<sup>1−α</sup>."},
+{id:"hjb",d:7,label:"HJB equation",pages:[[7,9,13]],
+ eq:"ρ V(k) = max<sub>c</sub> { u(c) + V′(k) [ f(k) − δk − c ] }",
+ sum:"Bellman with period length Δ: subtract, divide by Δ, let Δ → 0. Flow value = flow payoff + marginal value × drift. A necessary condition only.",
+ hw:[["6.2"],["6.3","(a)–(c)"],["6.4","(a)"]]},
+{id:"cteuler",d:7,label:"Euler equation, continuous time",pages:[[7,14,15]],
+ eq:"ċ / c = (1/σ) [ f′(k) − δ − ρ ]",
+ sum:"FOC, envelope, and the time derivative of the FOC. Consumption grows when the return exceeds the discount rate, at a speed set by the EIS.",
+ hw:[["6.4","(a)"],["6.5","(c)"]]},
+{id:"phase",d:7,label:"Phase diagram, saddle path",pages:[[7,16,19],[7,43,43]],
+ sum:"The k̇ = 0 and ċ = 0 loci split the plane; only the saddle path converges. Start above it and k hits zero (infeasible); below it, the TVC fails. Numerically: shooting or finite differences.",
+ hw:[["6.4","(b)(c)"]]},
+{id:"oc",d:7,label:"Optimal control (Hamiltonian)",pages:[[7,20,25],[7,44,45]],
+ eq:"H = v(x,y) + μ g(x,y):  H<sub>y</sub> = 0,  H<sub>x</sub> = ρμ − μ̇",
+ sum:"The current-value Hamiltonian is the HJB's right side with V′ replaced by the costate μ. With concavity and the TVC the conditions are sufficient; μ = V′(x) is the marginal value of the state.",
+ hw:[["6.3","(d)"],["6.4","(d)"]]},
+{id:"tobinqc",d:7,label:"Adjustment costs, Tobin's q",pages:[[7,27,29]],
+ sum:"The costate on capital is Tobin's q: invest iff q > 1. Marginal q equals average q under constant returns (Hayashi); the q phase diagram.",
+ more:["Hayashi (1982, Econometrica)"]},
+{id:"poisson",d:7,label:"Poisson processes, CTMC",pages:[[7,30,32]],
+ sum:"An event arrives at rate η: probability ηΔ in a short interval, exponential waiting times, memoryless. Continuous-time Markov chains switch states at rates η<sub>ij</sub>."},
+{id:"hjbjump",d:7,label:"HJB with Poisson jumps",pages:[[7,33,33]],
+ eq:"ρV(x,z<sub>i</sub>) = max<sub>y</sub> { v + V<sub>x</sub> g + η<sub>i</sub> [ V(x,z<sub>j</sub>) − V(x,z<sub>i</sub>) ] }",
+ sum:"One extra term: rate × jump in value. No stochastic calculus needed.",
+ hw:[["6.5"],["6.6"]]},
+{id:"search",d:7,label:"Job search (McCall)",pages:[[7,34,35]],
+ eq:"w<sub>R</sub> = b + (η/ρ) ∫<sub>w<sub>R</sub></sub> (w − w<sub>R</sub>) dΦ(w)",
+ sum:"Employment/unemployment values; the reservation wage w<sub>R</sub> = ρU. Pickier with more frequent offers or higher benefits, less picky when jobs end faster.",
+ hw:[["5.2"],["6.2"]],more:["McCall (1970, QJE)"]},
+{id:"innov",d:7,label:"Innovation with Poisson arrivals",pages:[[7,36,37]],
+ eq:"x* = πγ / (r + δ)",
+ sum:"The firm chooses the arrival rate of its own innovations: marginal R&D cost = value gained from innovating. Creative destruction at rate δ shortens the payoff.",
+ more:["Aghion & Howitt (1992, Econometrica)","Acemoglu Ch.14"]},
+{id:"sgct",d:7,label:"Stochastic growth, continuous time",pages:[[7,38,39]],
+ sum:"Two TFP states switching at Poisson rates: the jump Euler equation. Expected change in marginal utility includes the jump; precautionary saving needs u‴ > 0. Solved numerically with finite differences.",
+ hw:[["6.5"],["6.6"]],more:["Achdou, Han, Lasry, Lions & Moll (2022, REStud)"]},
+{id:"cov",d:7,label:"Calculus of variations",kind:"fyi",pages:[[7,46,46]],
+ sum:"The Euler-Lagrange equation for max ∫ F(t, x, ẋ) dt: the ancestor of optimal control."},
+{id:"irrevct",d:7,label:"Irreversible investment (CT)",kind:"fyi",pages:[[7,47,48]],
+ sum:"Constraints in optimal control: the irreversibility constraint in continuous time and its phase diagram."}
+];
+
+// [from, to] = "to builds on from"; third entry "a" = discrete ↔ continuous analog
+const EDGES = [
+["workflow","staticge"],["crs","staticge"],["staticge","planner0"],["staticge","calib"],["workflow","calib"],
+["malthus","solow"],["crs","solow"],["staticge","solow"],["kaldor","solowg"],["solow","golden"],["solow","solowg"],["solowg","growthacc"],["solowg","calib"],
+["solow","ngm"],["ngm","planner"],["planner0","planner"],["planner","euler"],["euler","backward"],["euler","seq"],["seq","tvc"],
+["backward","bellman"],["seq","bellman"],["bellman","contraction"],["contraction","vfi"],["bellman","vfi"],["bellman","feuler"],["euler","feuler"],
+["bellman","guess"],["feuler","guess"],["feuler","mgr"],["golden","mgr"],["solowg","crrabgp"],["ngm","crrabgp"],
+["planner","ade"],["staticge","ade"],["ade","sme"],["sme","rce"],["bellman","rce"],["ade","welfare"],["planner","welfare"],["rce","calib"],
+["sme","cs"],["tvc","cs"],["cs","smooth"],["cs","pih"],["ade","complete"],["cs","complete"],["feuler","obc"],["obc","tobinqd"],
+["rce","hetero"],["ngm","labor"],["rce","labor"],["rce","fiscal"],["sme","fiscal"],["ngm","hc"],["crrabgp","crra"],
+["uncert","markov"],["uncert","ssp"],["euler","ssp"],["tvc","ssp"],["ssp","sfe"],["markov","sfe"],["feuler","sfe"],["vfi","sfe"],
+["sfe","statdist"],["guess","statdist"],["ade","ades"],["ssp","ades"],["ades","smes"],["sme","smes"],["smes","rces"],["rce","rces"],
+["markov","contshock"],["mgr","loglin"],["sfe","loglin"],
+["ades","risk"],["welfare","risk"],["crra","risk"],["smes","arrow"],["rces","arrow"],["hetero","arrow"],["risk","arrow"],
+["risk","precaution"],["smooth","precaution"],["crra","precaution"],["precaution","buffer"],["obc","buffer"],
+["smes","sdf"],["risk","sdf"],["sdf","equity"],["crra","equity"],["sfe","rbc"],["labor","rbc"],["calib","rbc"],["loglin","rbc"],
+["solowg","ctsolow"],["ctsolow","hjb"],["hjb","cteuler"],["crra","cteuler"],["cteuler","phase"],["tvc","phase"],["mgr","phase"],["ctsolow","phase"],
+["hjb","oc"],["seq","oc"],["oc","tobinqc"],["phase","tobinqc"],["oc","cov"],["phase","irrevct"],
+["poisson","hjbjump"],["hjb","hjbjump"],["hjbjump","search"],["hjbjump","innov"],["hjbjump","sgct"],["sfe","sgct"],["precaution","sgct"],["cteuler","sgct"],
+// discrete <-> continuous analogs
+["solow","ctsolow","a"],["bellman","hjb","a"],["feuler","cteuler","a"],["markov","poisson","a"],["tobinqd","tobinqc","a"],["obc","irrevct","a"],["sfe","sgct","a"],["euler","cov","a"]
+];
+
+const THREADS = [
+ {name:"The Euler equation, everywhere",desc:"One intertemporal condition in every setting of the course: finite horizon, recursive, with constraints, with uncertainty, in continuous time, and with jumps.",
+  path:["euler","feuler","obc","ssp","sfe","cteuler","sgct"]},
+ {name:"Three equilibrium concepts",desc:"Arrow-Debreu, sequential markets, recursive competitive equilibrium: first without risk, then with aggregate risk, then with heterogeneous agents and Arrow securities.",
+  path:["staticge","ade","sme","rce","ades","smes","rces","arrow"]},
+ {name:"Efficiency and the planner",desc:"Why the planner's problem is worth solving, when markets reproduce it, and when they don't (taxes, missing markets).",
+  path:["planner0","planner","welfare","risk","fiscal"]},
+ {name:"Solving models",desc:"From pen and paper to the computer: guess and verify, value function iteration, stationary distributions, local approximation, phase diagrams and shooting.",
+  path:["guess","contraction","vfi","statdist","loglin","phase"]},
+ {name:"Saving decisions",desc:"How households save: smoothing, permanent income, precaution against uninsurable risk, buffer stocks; then the same questions in continuous time.",
+  path:["cs","smooth","pih","risk","precaution","buffer","sgct"]},
+ {name:"From growth facts to growth models",desc:"Stylized facts, the Solow model, optimal growth, balanced growth, and the continuous-time version.",
+  path:["malthus","kaldor","solow","solowg","ngm","crrabgp","ctsolow"]},
+ {name:"Discrete ↔ continuous time",desc:"Each continuous-time tool has a discrete-time ancestor from earlier in the semester.",
+  path:["bellman","hjb","feuler","cteuler","markov","poisson","hjbjump"]}
+];
+
+// ===================================================================== GRAPH
+const byId = Object.fromEntries(NODES.map(n=>[n.id,n]));
+NODES.forEach(n=>{n.kind=n.kind||"core";n.ins=[];n.outs=[];});
+EDGES.forEach(e=>{const [a,b,k]=e; if(!byId[a]||!byId[b]){console.warn("bad edge",e);return;} byId[a].outs.push(b); byId[b].ins.push(a);});
+const deckColor = d=>`var(--d${d})`;
+const W=1250,H=1050;
+const svg=document.getElementById("svg"), vp=document.getElementById("vp");
+const gE=document.getElementById("edges"), gN=document.getElementById("nodes"), gT=document.getElementById("threadLayer");
+const NS="http://www.w3.org/2000/svg";
+const el=(t,a={},p)=>{const x=document.createElementNS(NS,t);for(const k in a)x.setAttribute(k,a[k]);if(p)p.appendChild(x);return x;};
+const radius=n=>5+Math.sqrt(n.ins.length+n.outs.length)*2.4;
+
+// deterministic pseudo-random
+let seed=7;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647;};
+let byDeck=true;
+function colX(d){return 90+d*(W-180)/7;}
+const perDeck={};NODES.forEach(n=>{perDeck[n.d]=(perDeck[n.d]||0)+1;});const seen={};
+NODES.forEach(n=>{const i=seen[n.d]=(seen[n.d]||0)+1;n.x=colX(n.d)+(rnd()-.5)*80;n.y=H*(i-.5)/perDeck[n.d]+(rnd()-.5)*30;n.vx=0;n.vy=0;});
+
+function simulate(iter){
+  const L=110, kRep=7000, kSpr=.03, kX=byDeck?.09:0, kY=.0012;
+  for(let it=0;it<iter;it++){
+    const cool=1-it/iter;
+    for(let i=0;i<NODES.length;i++){const a=NODES[i];
+      for(let j=i+1;j<NODES.length;j++){const b=NODES[j];
+        let dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy+.01;
+        if(byDeck&&a.d!==b.d)d2*=1.6;
+        const f=kRep/d2, d=Math.sqrt(d2); dx/=d;dy/=d;
+        a.vx+=dx*f;a.vy+=dy*f;b.vx-=dx*f;b.vy-=dy*f;}}
+    EDGES.forEach(([s,t])=>{const a=byId[s],b=byId[t];let dx=b.x-a.x,dy=b.y-a.y,d=Math.sqrt(dx*dx+dy*dy)+.01;
+      const f=kSpr*(d-L);dx/=d;dy/=d;a.vx+=dx*f;a.vy+=dy*f;b.vx-=dx*f;b.vy-=dy*f;});
+    NODES.forEach(n=>{
+      if(byDeck)n.vx+=(colX(n.d)-n.x)*kX; else n.vx+=(W/2-n.x)*.004;
+      n.vy+=(H/2-n.y)*kY;
+      const sp=Math.hypot(n.vx,n.vy),mx=30*cool+1;if(sp>mx){n.vx*=mx/sp;n.vy*=mx/sp;}
+      if(!n.fixed){n.x+=n.vx;n.y+=n.vy;} n.vx*=.55;n.vy*=.55;});
+  }
+}
+
+// ===================================================================== RENDER
+const edgeEls=[], nodeEls={};
+function build(){
+  EDGES.forEach(e=>{const p=el("path",{class:"edge"+(e[2]==="a"?" analog":""),"marker-end":"url(#arr)"},gE);edgeEls.push({e,p});});
+  NODES.forEach(n=>{
+    const g=el("g",{class:"node"+(n.kind!=="core"?" opt":""),tabindex:0,role:"button","aria-label":n.label},gN);
+    el("circle",{r:radius(n),fill:deckColor(n.d)},g);
+    const t=el("text",{x:radius(n)+3,y:4},g);t.textContent=n.label;
+    const o=el("text",{class:"ord","text-anchor":"middle",y:3.5},g);
+    g.addEventListener("click",ev=>{ev.stopPropagation();if(!dragMoved)select(n.id);});
+    g.addEventListener("keydown",ev=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();select(n.id);}});
+    g.addEventListener("pointerdown",ev=>startDrag(ev,n));
+    nodeEls[n.id]={g,o};
+  });
+}
+function draw(){
+  NODES.forEach(n=>nodeEls[n.id].g.setAttribute("transform",`translate(${n.x.toFixed(1)},${n.y.toFixed(1)})`));
+  edgeEls.forEach(({e,p})=>{const a=byId[e[0]],b=byId[e[1]];
+    const dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||1,ra=radius(a)+1,rb=radius(b)+4;
+    const x1=a.x+dx/d*ra,y1=a.y+dy/d*ra,x2=b.x-dx/d*rb,y2=b.y-dy/d*rb;
+    const mx=(x1+x2)/2-dy*.08,my=(y1+y2)/2+dx*.08;
+    p.setAttribute("d",`M${x1.toFixed(1)},${y1.toFixed(1)}Q${mx.toFixed(1)},${my.toFixed(1)} ${x2.toFixed(1)},${y2.toFixed(1)}`);});
+  drawThread();
+}
+
+// ===================================================================== VIEW (pan/zoom/drag)
+let view={x:0,y:0,k:1};
+function applyView(){vp.setAttribute("transform",`translate(${view.x},${view.y}) scale(${view.k})`);}
+function fit(){
+  const r=svg.getBoundingClientRect();let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;
+  NODES.forEach(n=>{x0=Math.min(x0,n.x-10);y0=Math.min(y0,n.y-10);x1=Math.max(x1,n.x+120);y1=Math.max(y1,n.y+10);});
+  const k=Math.min(r.width/(x1-x0),r.height/(y1-y0))*.96;view.k=k;view.x=(r.width-(x1-x0)*k)/2-x0*k;view.y=(r.height-(y1-y0)*k)/2-y0*k;applyView();
+}
+function zoomAt(f,cx,cy){const k2=Math.max(.2,Math.min(5,view.k*f));view.x=cx-(cx-view.x)*k2/view.k;view.y=cy-(cy-view.y)*k2/view.k;view.k=k2;applyView();}
+svg.addEventListener("wheel",ev=>{ev.preventDefault();const r=svg.getBoundingClientRect();zoomAt(Math.exp(-ev.deltaY*.0015),ev.clientX-r.left,ev.clientY-r.top);},{passive:false});
+let pan=null,drag=null,dragMoved=false;
+svg.addEventListener("pointerdown",ev=>{if(drag)return;pan={x:ev.clientX,y:ev.clientY,vx:view.x,vy:view.y,moved:false};svg.classList.add("panning");});
+window.addEventListener("pointermove",ev=>{
+  if(drag){const dx=(ev.clientX-drag.cx)/view.k,dy=(ev.clientY-drag.cy)/view.k;if(Math.abs(dx)+Math.abs(dy)>2)dragMoved=true;drag.n.x=drag.x+dx;drag.n.y=drag.y+dy;draw();return;}
+  if(pan){const dx=ev.clientX-pan.x,dy=ev.clientY-pan.y;if(Math.abs(dx)+Math.abs(dy)>3)pan.moved=true;view.x=pan.vx+dx;view.y=pan.vy+dy;applyView();}
+});
+window.addEventListener("pointerup",()=>{if(pan&&!pan.moved&&!drag)clearSel();pan=null;svg.classList.remove("panning");if(drag){drag.n.fixed=true;drag=null;setTimeout(()=>dragMoved=false,0);}});
+function startDrag(ev,n){ev.stopPropagation();dragMoved=false;drag={n,cx:ev.clientX,cy:ev.clientY,x:n.x,y:n.y};}
+document.getElementById("zin").onclick=()=>{const r=svg.getBoundingClientRect();zoomAt(1.25,r.width/2,r.height/2);};
+document.getElementById("zout").onclick=()=>{const r=svg.getBoundingClientRect();zoomAt(.8,r.width/2,r.height/2);};
+document.getElementById("zfit").onclick=fit;
+
+// ===================================================================== STATE + HIGHLIGHT
+let sel=null, deckFocus=null, threadIdx=null, showChain=false, query="";
+function ancestors(id){const s=new Set();const st=[id];while(st.length){const x=st.pop();byId[x].ins.forEach(p=>{if(!s.has(p)){s.add(p);st.push(p);}});}return s;}
+function descendants(id){const s=new Set();const st=[id];while(st.length){const x=st.pop();byId[x].outs.forEach(p=>{if(!s.has(p)){s.add(p);st.push(p);}});}return s;}
+function refresh(){
+  let lit=null;
+  const q=query.trim().toLowerCase();
+  const hits=new Set(q?NODES.filter(n=>(n.label+" "+n.sum).toLowerCase().includes(q)).map(n=>n.id):[]);
+  if(sel){lit=new Set([sel,...byId[sel].ins,...byId[sel].outs]);if(showChain){ancestors(sel).forEach(x=>lit.add(x));}}
+  else if(threadIdx!==null){lit=new Set(THREADS[threadIdx].path);}
+  else if(deckFocus!==null){lit=new Set(NODES.filter(n=>n.d===deckFocus).map(n=>n.id));}
+  else if(q){lit=hits;}
+  const chain=sel&&showChain?ancestors(sel):null;
+  NODES.forEach(n=>{const g=nodeEls[n.id].g;
+    g.classList.toggle("dim",!!lit&&!lit.has(n.id));
+    g.classList.toggle("sel",n.id===sel);
+    g.classList.toggle("hit",!!q&&hits.has(n.id)&&n.id!==sel);
+    const o=nodeEls[n.id].o; o.textContent=(threadIdx!==null&&!sel)?(THREADS[threadIdx].path.indexOf(n.id)+1||""):"";});
+  edgeEls.forEach(({e,p})=>{const [a,b,k]=e;let cls="edge"+(k==="a"?" analog":"");let mk="url(#arr)";
+    if(sel){
+      if(b===sel||(chain&&chain.has(b)&&(chain.has(a)))){cls+=" in";mk="url(#arrIn)";}
+      else if(a===sel){cls+=" out";mk="url(#arrOut)";}
+      else cls+=" dim";
+    } else if(lit&&!(lit.has(a)&&lit.has(b))) cls+=" dim";
+    p.setAttribute("class",cls);p.setAttribute("marker-end",mk);});
+  document.querySelectorAll(".legend .chip").forEach(c=>c.classList.toggle("on",+c.dataset.d===deckFocus));
+  drawThread();
+}
+function drawThread(){
+  gT.innerHTML="";if(threadIdx===null||sel)return;
+  const pts=THREADS[threadIdx].path.map(id=>byId[id]);
+  el("polyline",{class:"thread",points:pts.map(n=>`${n.x.toFixed(1)},${n.y.toFixed(1)}`).join(" ")},gT);
+}
+function select(id){sel=id;renderNode(id);refresh();}
+function clearSel(){sel=null;showChain=false;if(threadIdx!==null)renderThread(threadIdx);else if(deckFocus!==null)renderDeck(deckFocus);else renderHome();refresh();}
+
+// ===================================================================== PANEL
+const P=document.getElementById("panel");
+const esc=s=>s.replace(/&(?![a-z#0-9]+;)/gi,"&amp;");
+const pdfLink=(d,p)=>encodeURI(DECKS[d].file)+"#page="+p;
+const psLink=(k,key)=>"";   // problem sets not posted
+const exLink=(k,key)=>"";   // exams not posted
+const A=(href,txt)=>(SHOW_LINKS&&href)?`<a href="${href}" target="_blank">${txt}</a>`:txt;
+const kindTag={opt:"optional",fyi:"FYI",next:"next semester"};
+function chip(id){const n=byId[id];return `<span class="chip" data-go="${id}"><span class="dot" style="background:${deckColor(n.d)}"></span>${n.label}</span>`;}
+function renderNode(id){
+  const n=byId[id];const D=DECKS[n.d];
+  let h=`<div><span class="tag" style="color:${deckColor(n.d)}">● Deck ${n.d}: ${D.name}</span>${n.kind!=="core"?`<span class="tag">${kindTag[n.kind]}</span>`:""}</div>`;
+  h+=`<h2>${n.label}</h2><p>${n.sum}</p>`;
+  if(n.eq)h+=`<div class="eq">${n.eq}</div>`;
+  h+=`<h3>Slides (handout pages)</h3><ul>`+n.pages.map(([d,a,b])=>`<li><span class="dot" style="background:${deckColor(d)}"></span> Deck ${d}, ${DECKS[d].name}: `+
+     (a===b?A(pdfLink(d,a),`p.&nbsp;${a}`):A(pdfLink(d,a),`pp.&nbsp;${a}–${b}`))+`</li>`).join("")+`</ul>`;
+  const reads=[...D.read.map(r=>r+` <span class="muted small">(deck ${n.d} readings)</span>`),...(n.more||[])];
+  h+=`<h3>Further reading</h3><ul>`+reads.map(r=>`<li>${r}</li>`).join("")+`</ul>`;
+  if(n.hw&&n.hw.length){h+=`<h3>Problem sets</h3><ul>`+n.hw.map(([k,pt])=>{const [ps,q]=k.split(".");
+    return `<li>${A(psLink(ps),`PS${ps} Q${q}`)}${pt?" "+pt:""}: ${HW[k]}${SHOW_LINKS&&SHOW_KEYS?` <a class="small" href="${psLink(ps,1)}" target="_blank">key</a>`:""}</li>`;}).join("")+`</ul>`;}
+  if(n.ex&&n.ex.length){h+=`<h3>Midterms</h3><ul>`+n.ex.map(([k,pt])=>{const [m,q]=k.split(".");
+    return `<li>${A(exLink(m),`Midterm ${m} Q${q}`)}${pt?" "+pt:""}: ${EX[k]}${SHOW_LINKS&&SHOW_KEYS?` <a class="small" href="${exLink(m,1)}" target="_blank">key</a>`:""}</li>`;}).join("")+`</ul>`;}
+  if(n.ins.length)h+=`<h3 style="color:var(--in)">Builds on</h3><div class="nb">${n.ins.map(chip).join("")}</div>`;
+  if(n.outs.length)h+=`<h3 style="color:var(--out)">Leads to</h3><div class="nb">${n.outs.map(chip).join("")}</div>`;
+  const anc=ancestors(id).size, des=descendants(id).size;
+  h+=`<p style="margin-top:14px"><button id="chainBtn" class="${showChain?"on":""}">${showChain?"Hide":"Show"} everything it builds on (${anc})</button></p>`;
+  h+=`<p class="muted small">${des} later concept${des===1?"":"s"} depend on this one, directly or indirectly.</p>`;
+  const th=THREADS.map((t,i)=>t.path.includes(id)?i:-1).filter(i=>i>=0);
+  if(th.length)h+=`<h3>Part of these threads</h3><ul>`+th.map(i=>`<li><a href="#" data-thread="${i}">${THREADS[i].name}</a></li>`).join("")+`</ul>`;
+  P.innerHTML=h;P.scrollTop=0;
+  document.getElementById("chainBtn").onclick=()=>{showChain=!showChain;renderNode(id);refresh();};
+}
+function renderDeck(d){
+  const D=DECKS[d];const ns=NODES.filter(n=>n.d===d);
+  let h=`<span class="tag" style="color:${deckColor(d)}">● Deck ${d}</span><h2>${D.name}</h2>`;
+  if(SHOW_LINKS)h+=`<p><a href="${encodeURI(D.file)}" target="_blank">Open the handout PDF</a></p>`;
+  h+=`<h3>Readings</h3><ul>${D.read.map(r=>`<li>${r}</li>`).join("")}</ul>`;
+  h+=`<h3>Concepts (${ns.length})</h3><div class="nb">${ns.map(n=>chip(n.id)).join("")}</div>`;
+  const hw=new Set(),ex=new Set();ns.forEach(n=>{(n.hw||[]).forEach(x=>hw.add(x[0]));(n.ex||[]).forEach(x=>ex.add(x[0]));});
+  if(hw.size)h+=`<h3>Problem-set questions</h3><ul>${[...hw].sort().map(k=>{const [p,q]=k.split(".");return `<li>${A(psLink(p),`PS${p} Q${q}`)}: ${HW[k]}</li>`;}).join("")}</ul>`;
+  if(ex.size)h+=`<h3>Midterm questions</h3><ul>${[...ex].sort().map(k=>{const [m,q]=k.split(".");return `<li>${A(exLink(m),`Midterm ${m} Q${q}`)}: ${EX[k]}</li>`;}).join("")}</ul>`;
+  P.innerHTML=h;P.scrollTop=0;
+}
+function renderThread(i){
+  const t=THREADS[i];
+  let h=`<span class="tag">Thread</span><h2>${t.name}</h2><p>${t.desc}</p><h3>In order</h3><ol>`+
+    t.path.map(id=>`<li>${chip(id)} <span class="muted small">deck ${byId[id].d}</span></li>`).join("")+`</ol>`;
+  P.innerHTML=h;P.scrollTop=0;
+}
+function renderHome(){
+  const hwN=Object.keys(HW).length, exN=Object.keys(EX).length;
+  const linked=new Set();NODES.forEach(n=>(n.hw||[]).forEach(x=>linked.add(x[0])));
+  let h=`<h2>One semester, ${NODES.length} ideas</h2>
+  <p class="muted">${NODES.length} concepts from 8 slide decks, ${EDGES.length} links, ${hwN} problem-set questions and ${exN} midterm questions.</p>
+  <h3>How to use it</h3><ul class="help">
+  <li><b>Click a concept</b> to see what it <span style="color:var(--in)">builds on</span> and what it <span style="color:var(--out)">leads to</span>, with slide pages, readings, and the homework and exam questions that use it.</li>
+  <li><b>“Show everything it builds on”</b> lights up the whole prerequisite chain: a study path for the final.</li>
+  <li><b>Click a deck</b> in the legend to see its concepts and readings.</li>
+  <li><b>Threads</b> follow one idea across the semester.</li>
+  <li><b>Search</b> concepts; drag nodes; scroll to zoom; drag the background to pan; Esc to clear.</li>
+  <li><b>By deck</b> arranges the decks left to right; turn it off for a free layout.</li></ul>
+  <h3>Threads</h3><ul>${THREADS.map((t,i)=>`<li><a href="#" data-thread="${i}">${t.name}</a></li>`).join("")}</ul>
+  <h3>Books</h3><ul class="small">
+  <li><b>AKMM</b>: Azzimonti, Krusell, McKay & Mukoyama, <i>Macroeconomics</i>, <a href="https://phdmacrobook.org/" target="_blank">phdmacrobook.org</a></li>
+  <li><b>Krueger</b>: Dirk Krueger, <i>Macroeconomic Theory</i> (manuscript)</li>
+  <li><b>SLP</b>: Stokey, Lucas & Prescott, <i>Recursive Methods in Economic Dynamics</i> (1989)</li>
+  <li><b>Acemoglu</b>: <i>Introduction to Modern Economic Growth</i> (2009)</li>
+  <li><b>Ljungqvist & Sargent</b>: <i>Recursive Macroeconomic Theory</i></li></ul>`;
+  P.innerHTML=h;
+}
+P.addEventListener("click",ev=>{
+  const g=ev.target.closest("[data-go]");if(g){select(g.dataset.go);return;}
+  const t=ev.target.closest("[data-thread]");if(t){ev.preventDefault();setThread(+t.dataset.thread);}
+});
+
+// ===================================================================== CONTROLS
+const legend=document.getElementById("legend");
+DECKS.forEach((D,d)=>{const c=document.createElement("span");c.className="chip";c.dataset.d=d;
+  c.innerHTML=`<span class="dot" style="background:${deckColor(d)}"></span>${d}. ${D.name}`;
+  c.onclick=()=>{sel=null;threadIdx=null;threadSel.value="";deckFocus=(deckFocus===d?null:d);deckFocus===null?renderHome():renderDeck(d);refresh();};
+  legend.insertBefore(c,legend.querySelector(".key"));});
+const threadSel=document.getElementById("thread");
+THREADS.forEach((t,i)=>{const o=document.createElement("option");o.value=i;o.textContent=t.name;threadSel.appendChild(o);});
+function setThread(i){sel=null;deckFocus=null;threadIdx=(i===null||isNaN(i))?null:i;threadSel.value=threadIdx===null?"":threadIdx;threadIdx===null?renderHome():renderThread(threadIdx);refresh();}
+threadSel.onchange=()=>setThread(threadSel.value===""?null:+threadSel.value);
+const qEl=document.getElementById("q");
+qEl.addEventListener("input",()=>{query=qEl.value;if(!sel)refresh();else refresh();});
+qEl.addEventListener("keydown",ev=>{if(ev.key==="Enter"){const q=qEl.value.trim().toLowerCase();const n=NODES.find(n=>n.label.toLowerCase().includes(q))||NODES.find(n=>n.sum.toLowerCase().includes(q));if(n)select(n.id);}});
+document.getElementById("reset").onclick=()=>{qEl.value="";query="";deckFocus=null;threadIdx=null;threadSel.value="";sel=null;showChain=false;renderHome();refresh();fit();};
+document.getElementById("layoutBtn").onclick=ev=>{byDeck=!byDeck;ev.target.classList.toggle("on",byDeck);NODES.forEach(n=>n.fixed=false);simulate(350);draw();fit();};
+document.addEventListener("keydown",ev=>{if(ev.key==="Escape"){if(sel)clearSel();else document.getElementById("reset").click();}});
+const root=document.documentElement;
+document.getElementById("theme").onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;root.dataset.theme=dark?"light":"dark";};
+window.addEventListener("resize",()=>fit());
+
+// ===================================================================== GO
+build();simulate(600);draw();renderHome();refresh();requestAnimationFrame(fit);
+</script>
+</body>
+</html>

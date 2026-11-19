@@ -1,0 +1,271 @@
+# Everything on the site comes from this file. Edit, then run:  python3 build.py
+# (Or just tell Claude what changed.)
+
+[site]
+name = "Can Tian"
+name_zh = "田粲"
+position = "Associate Professor of Economics"
+department = "Department of Economics"
+institution = "University of North Carolina at Chapel Hill"
+email = "tiancan@email.unc.edu"
+email_alt = "tiancan.econ@gmail.com"
+address = "Gardner Hall 202, University of North Carolina, Chapel Hill, NC 27599, USA"
+domain = ""          # e.g. "cantian.org" once bought; writes the CNAME file for GitHub Pages
+base_url = ""        # e.g. "https://cantian.org"; enables sitemap.xml and canonical links
+description = "Macroeconomist at UNC Chapel Hill studying how firm heterogeneity, firm dynamics, and evolving networks among firms (production, knowledge, and trade) shape growth and business cycles."
+interests = ["macroeconomics", "networks in macroeconomics", "firm heterogeneity and dynamics", "innovation and growth", "search and matching", "business cycles", "information frictions"]
+alumni = ["University of Pennsylvania", "Zhejiang University"]
+bio_html = """<p>I am a macroeconomist. My research asks how the behavior of individual firms adds up to the aggregate economy: why firms differ in size and productivity, how they grow, enter and exit, how they form and use relationships with one another, and what all of this means for long-run growth and short-run fluctuations. I combine theory, quantitative models, and data, borrowing tools from microeconomic theory and industrial organization.</p>"""
+pronunciation_html = "Can is pronounced /ts-ahn/, but I also answer to reasonable variations of it, Candace, and /Kahn/ as in the wrath of."
+
+[[profile_links]]
+label = "CV (PDF)"
+url = "/files/cv.pdf"
+[[profile_links]]
+label = "Google Scholar"
+url = "https://scholar.google.com/citations?user=oiN7Z30AAAAJ"
+[[profile_links]]
+label = "RePEc / IDEAS"
+url = ""
+[[profile_links]]
+label = "ORCID"
+url = ""
+[[profile_links]]
+label = "UNC Economics"
+url = ""
+
+[people]
+"Fei Li" = "https://lifei.weebly.com/"
+"Charles Murry" = "https://charliemurry.github.io/"
+"Yiyi Zhou" = "https://sites.google.com/a/stonybrook.edu/yiyi-zhou/"
+"Jie Cai" = "https://sites.google.com/site/aprilcai/home"
+
+# ---------------- papers ----------------
+# kind = "working" or "published". Order here = order on the site.
+
+[[papers]]
+slug = "knowledge-network-dynamics"
+kind = "working"
+title = "Innovation and Endogenous Knowledge Network Dynamics"
+authors = ["Jie Cai", "Can Tian"]
+year = 2024
+date = "2024-07"
+status = "Working paper, July 2024"
+pdf = "knowledge-network-dynamics.pdf"
+links = [{ label = "Earlier version (Feb 2023)", url = "knowledge-network-dynamics-2023.pdf" }]
+keywords = ["knowledge networks", "innovation", "growth", "patent citations", "link formation"]
+abstract = "We study innovation in evolving knowledge networks and its growth implications. Empirically, a new link in the knowledge network is approximated as the first citation between a pair of technology categories. We find that these new links likely connect high-quality innovations and large firms on both ends. After forming a new link, responsible firms’ innovation and real performance improve on both ends with positive spillovers to other firms. We build a tractable model to rationalize these findings and analytically characterize the stationary equilibrium. In the model, the knowledge network evolves endogenously as each firm searches for others as knowledge input suppliers and attracts others as users of its own knowledge. In equilibrium, faster growth is associated with denser and better knowledge networks. Endogenous link formation amplifies the effect of innovation incentives on growth. The calibrated model suggests that the majority of growth in the US has network origins."
+
+[[papers]]
+slug = "intermediaries-decentralized-markets"
+kind = "working"
+title = "Intermediaries in Decentralized Markets: Evidence from Used-Car Transactions"
+authors = ["Fei Li", "Charles Murry", "Can Tian", "Yiyi Zhou"]
+year = 2025
+status = "NBER Working Paper 34136 · revision requested, Journal of Political Economy"
+series = "National Bureau of Economic Research"
+series_type = "NBER Working Paper"
+number = "34136"
+doi = "10.3386/w34136"
+date = "2025-08"
+links = [{ label = "NBER", url = "https://www.nber.org/papers/w34136" }]
+keywords = ["intermediaries", "dealers", "search and bargaining", "spatial frictions", "used cars"]
+abstract = "We develop and estimate a spatial search-and-bargaining model to study the role of intermediaries and spatial frictions using data from the used-car market. We find that dealers earn price premiums by leveraging three key advantages: selective acquisition of higher-quality cars, superior matching efficiency, and greater bargaining power. Counterfactual simulations reveal that selective intermediation and spatial segmentation significantly affect market efficiency and consumer welfare. While dealers extract more surplus per transaction than sellers, policies reducing dealers' advantages increase search frictions and lower overall welfare. Counterintuitively, reducing spatial frictions harms consumers by shifting trade to less efficient private-seller channels."
+
+[[papers]]
+slug = "inventory-management-decentralized-markets"
+kind = "published"
+title = "Inventory Management in Decentralized Markets"
+authors = ["Fei Li", "Charles Murry", "Can Tian", "Yiyi Zhou"]
+journal = "International Economic Review"
+year = 2024
+volume = "65"
+issue = "1"
+pages = "431-470"
+doi = "10.1111/iere.12669"
+abstract = "We present a directed search model of intermediaries' dynamic inventory and revenue management. Search frictions hinder instantaneous replenishment, prompting intermediaries to utilize dynamic inventory‐based pricing and ordering strategies. In equilibrium, when inventory is high, an intermediary posts a lower retail price to speed up sales and depresses wholesale price to slow down purchases. We characterize the evolution dynamics of inventory holdings and their steady‐state distribution, and extend the model to multiunit wholesale orders, product differentiation, and heterogeneous intermediaries. Using data from used‐car dealers, we quantitatively evaluate the welfare consequence of used‐car dealers' inventory management practice."
+
+[[papers]]
+slug = "learning-firm-dynamics"
+kind = "published"
+title = "Learning and Firm Dynamics in a Stochastic Equilibrium"
+authors = ["Can Tian"]
+journal = "Journal of Economic Theory"
+year = 2022
+volume = "203"
+article = "105486"
+doi = "10.1016/j.jet.2022.105486"
+abstract = "New firms have unknown profitability types, but they learn in the market. With imperfect information, the learning mechanism matters at the firm level and in the aggregate. This paper studies the effect of learning on the distribution of firms, aggregate dynamics, and welfare when firm growth and the entry and exit dynamics are belief-driven. Aggregate uncertainty affects heterogeneous firm beliefs about own types. Faster learning raises firms' continuation values, lowers the selection threshold belief, and thickens the belief distribution's right tail. Aggregate uncertainty lowers firm value by reducing firms' learning speed. Transitory aggregate shocks have persistent impacts on the economy by shifting existing firms' belief updating paths, affecting firm decisions along both intensive and extensive margins. Faster learning improves social welfare."
+
+[[papers]]
+slug = "pigouvian-io-linkages"
+kind = "published"
+title = "Input-Output Linkages in Pigouvian Industrial Fluctuations"
+authors = ["Can Tian"]
+journal = "Journal of Monetary Economics"
+year = 2021
+volume = "117"
+pages = "1078-1095"
+pdf = "pigouvian-io-preprint.pdf"
+pdf_label = "Preprint (PDF)"
+notes = ["The PDF is the pre-print version."]
+doi = "10.1016/j.jmoneco.2020.09.001"
+abstract = "Input-output linkages facilitate expectations-driven fluctuations. Signals about yet-to-be-realized aggregate (macro) and idiosyncratic (micro) fundamentals in the future affect current equilibrium outcome through chains of input needs when inputs require time to build. Depending on their importance on these chains, firms respond differently to common signals. The network structure, together with input time to build, determines the magnitude of signal-induced aggregate fluctuations. Macro signals need large input shares on average to produce sizable aggregate volatility, whereas micro signals require cross-sectional variations of input importance. Changing input time to build and altering the network structure have similar effects on equilibrium outcomes."
+
+[[papers]]
+slug = "entry-exit-business-cycles"
+kind = "published"
+title = "Firm-Level Entry and Exit Dynamics over the Business Cycles"
+authors = ["Can Tian"]
+journal = "European Economic Review"
+year = 2018
+volume = "102"
+pages = "298-326"
+links = [{ label = "Earlier version (SSRN)", url = "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2694275" }]
+doi = "10.1016/j.euroecorev.2017.12.011"
+abstract = "This paper presents a set of facts on the cyclicality of firm births and deaths in the U.S. during the period 1979–2013. Asymmetry in the cyclicality between firm birth and firm death is observed: aggregate firm birth is generally significantly procyclical, while the (counter-)cyclicality in firm death is ambiguous and sensitive to the choice of cyclical indicator. Such a pattern exists within the majority of sectors as well and is mainly driven by small firms. Young firms are the main contributors to the findings on firm death activity. Further examination along the time-dimension discovers a reason for the contemporaneous cyclicality (or lack thereof) which can be documented as a new fact: firm births positively lead the usual business cycle measures and firm deaths positively lag them. Moreover, cyclicality in business openings and closings differs from establishment level to firm level due to the internal adjustment of continuing firms."
+
+[[papers]]
+slug = "riskiness-dispersion-business-cycles"
+kind = "published"
+title = "Riskiness, Endogenous Productivity Dispersion and Business Cycles"
+authors = ["Can Tian"]
+journal = "Journal of Economic Dynamics and Control"
+year = 2015
+volume = "57"
+pages = "227-249"
+links = [{ label = "Slides", url = "riskiness-slides.pdf" }]
+doi = "10.1016/j.jedc.2015.05.015"
+abstract = "In the data, cross-sectional productivity dispersion is countercyclical at both the plant level and the firm level, see e.g. Bloom (2009). I incorporate a firm's choice of risk level into a model of firm dynamics with real business cycle features to explain this empirical finding both qualitatively and quantitatively. In the model, in every period, each firm chooses the investment amount and the risk level associated with a production project every period. All projects available to each firm have the same expected flow return, determined by the aggregate and idiosyncratic shocks to the firm's productivity, and differ from one another only in their risk. The endogenous option of exiting the market and the limited funding for new investment jointly play an important role in motivating firms' risk-taking behavior. The model predicts that, in each period, relatively small firms are more likely to take risk and hence exhibit a higher exit rate, and that the cross-sectional productivity dispersion, measured as the standard deviation of the realized individual component of productivity, is larger in recessions."
+
+[[papers]]
+slug = "directed-search-job-rotation"
+kind = "published"
+title = "Directed Search and Job Rotation"
+authors = ["Fei Li", "Can Tian"]
+journal = "Journal of Economic Theory"
+year = 2013
+volume = "148"
+issue = "3"
+pages = "1268-1281"
+doi = "10.1016/j.jet.2012.10.004"
+abstract = "We consider the impact of job rotation in a directed search model in which firm sizes are endogenously determined and match quality is initially unknown. A large firm benefits from the opportunity to rotate workers so as to partially overcome the loss of mismatch. As a result, in the unique symmetric equilibrium, large firms have higher labor productivity and lower separation rates. In contrast to the standard directed search model with multi-vacancy firms, this model can generate a positive correlation between firm size and wage without introducing any ex ante productivity differences or imposing any non-concave production function assumptions."
+
+[[in_progress]]
+title = "Sorting in Firm-to-Firm Production Networks"
+authors = ["Can Tian", "Xincheng Qiu", "Xinan Yan"]
+[[in_progress]]
+title = "Search and Network Dynamics"
+authors = ["Can Tian"]
+[[in_progress]]
+title = "Dynamics of Citation Networks and Structural Changes in Input-Output Linkages"
+authors = ["Can Tian", "Jie Cai"]
+
+# ---------------- teaching ----------------
+[[teaching]]
+institution = "University of North Carolina at Chapel Hill"
+courses = [
+  { code = "ECON 720", title = "Advanced Macroeconomic Theory I", level = "PhD core", terms = "2025, 2026", links = [{ label = "Fall 2026 handouts & concept map", url = "/teaching/econ720/" }] },
+  { code = "ECON 822", title = "Firm Dynamics and Production Networks (formerly ECON 890)", level = "PhD field", terms = "2020, 2021, 2023, 2024", links = [{ label = "Syllabus (2020)", url = "syllabus-econ890-2020.pdf" }] },
+  { code = "ECON 423", title = "Financial Markets", level = "undergraduate", terms = "2020–2024" },
+  { code = "ECON 101H", title = "Introduction to Economics (Honors)", level = "undergraduate", terms = "2019", links = [{ label = "Syllabus", url = "syllabus-econ101h-2019.pdf" }] },
+  { code = "Mini-lecture", title = "Visual Design in Economics Research", level = "PhD", terms = "2018", links = [{ label = "Slides", url = "visual-design-slides.pdf" }] },
+]
+[[teaching]]
+institution = "Washington State University"
+courses = [
+  { code = "ECONS 502", title = "Macroeconomic Theory II", level = "PhD core", terms = "2018", links = [{ label = "Syllabus", url = "syllabus-econs502-2018.pdf" }] },
+  { code = "ECONS 500", title = "Macroeconomic Theory I", level = "PhD core", terms = "2016", links = [{ label = "Syllabus", url = "syllabus-econs500-2016.pdf" }] },
+  { code = "ECONS 320", title = "Money and Banking", level = "undergraduate", terms = "2016–2018" },
+]
+[[teaching]]
+institution = "Shanghai University of Finance and Economics"
+courses = [
+  { code = "", title = "Advanced Macroeconomics", level = "master's", terms = "2015–2016", links = [{ label = "Syllabus", url = "syllabus-sufe-advmacro-2016.pdf" }] },
+]
+[[teaching]]
+institution = "University of Pennsylvania"
+courses = [
+  { code = "ECON 103", title = "Statistics for Economists", level = "undergraduate", terms = "2011–2012" },
+]
+
+# ---------------- course pages ----------------
+[[course_pages]]
+path = "/teaching/econ720/"
+code = "ECON 720"
+title = "Advanced Macroeconomic Theory I"
+term = "Fall 2026"
+subtitle = "First-year PhD core, University of North Carolina at Chapel Hill · Fall 2026"
+description = "Lecture handouts and an interactive concept map for ECON 720, first-year PhD macroeconomics at UNC Chapel Hill (Fall 2026): Solow, dynamic programming, competitive equilibrium, uncertainty, continuous time."
+intro_html = "<p>Growth models as a workhorse for dynamic macroeconomic theory: dynamic programming with a computational payoff, competitive equilibrium in its several forms, uncertainty, and continuous-time methods.</p>"
+map = "/teaching/econ720/map.html"
+files_dir = "econ720-2026"
+decks = [
+  { n = 0, title = "Introduction", file = "0-introduction.pdf", pages = 29 },
+  { n = 1, title = "Malthus and Solow", file = "1-malthus-and-solow.pdf", pages = 50 },
+  { n = 2, title = "Dynamic programming and optimal growth", file = "2-dp-and-optimal-growth.pdf", pages = 108 },
+  { n = 3, title = "Competitive equilibrium growth", file = "3-competitive-equilibrium-growth.pdf", pages = 59 },
+  { n = 4, title = "Extensions and variants of the neoclassical growth model", file = "4-extensions-of-the-ngm.pdf", pages = 87 },
+  { n = 5, title = "Uncertainty and stochastic growth", file = "5-uncertainty-and-stochastic-growth.pdf", pages = 74 },
+  { n = 6, title = "Extensions and variants of the stochastic growth model", file = "6-extensions-of-the-stochastic-ngm.pdf", pages = 68 },
+  { n = 7, title = "Continuous-time methods", file = "7-continuous-time.pdf", pages = 48 },
+]
+
+# ---------------- CV (short HTML version; full PDF in static/files/cv.pdf) ----------------
+[cv]
+pdf_updated = "March 2026"
+employment = [
+  ["2025–", "Associate Professor, Department of Economics, University of North Carolina at Chapel Hill"],
+  ["2018–2025", "Assistant Professor, Department of Economics, University of North Carolina at Chapel Hill"],
+  ["2016–2018", "Assistant Professor, School of Economic Sciences, Washington State University"],
+  ["2014–2016", "Assistant Professor, School of Economics, Shanghai University of Finance and Economics"],
+]
+education = [
+  ["2014", "Ph.D. Economics, University of Pennsylvania (advisor: Dirk Krueger)"],
+  ["2008", "B.A. Finance, Zhejiang University"],
+]
+awards = [
+  ["2008–2013", "University Fellowship, University of Pennsylvania"],
+  ["2011–2012", "Xinmei Zhang Fellowship, University of Pennsylvania"],
+  ["2005–2007", "First Prize, Excellent Undergraduate Scholarship, Zhejiang University"],
+]
+service = [
+  ["2023–", "Co-organizer, Devils and Wolves International Economics Seminar Series"],
+  ["2023", "Member, Midwest Economics Association Nominating Committee"],
+  ["2022", "Mentor, CSWEP mentoring workshop for female and non-binary Ph.D. students"],
+]
+referee = "Journal of Economic Theory, Journal of Economic Dynamics and Control, Review of Economic Dynamics, Review of Economic Studies, Journal of Money, Credit and Banking, International Economic Review, The B.E. Journal of Macroeconomics, Economic Inquiry, Journal of Macroeconomics."
+
+# ---------------- art ----------------
+[life]
+intro_html = """<p>Happily married to <a href="https://lifei.weebly.com/">Fei Li</a>, my husband, colleague, coauthor, and former classmate.</p>
+<p>A self-taught and (very) amateur artist. I'm not sure about my specialization any more…</p>"""
+gallery_label = "A few drawings (a small subset, subject to random updates)"
+pieces = [
+  { file = "lion", alt = "Pastel drawing on black paper of a roaring lion" },
+  { file = "macaw", alt = "Colored-pencil drawing of a blue hyacinth macaw" },
+  { file = "iguana", alt = "Detailed ink drawing of an iguana's head" },
+  { file = "tiger", alt = "Colored-pencil drawing of a tiger walking forward" },
+  { file = "lioness", alt = "Pastel drawing on black paper of a snarling lioness" },
+  { file = "cockatoo", alt = "Drawing of a white cockatoo with an orange crest" },
+  { file = "rabbit", alt = "Pencil drawing of a lop-eared rabbit" },
+  { file = "cat-portrait", alt = "A cat portrait on display at a local cat café, with one of the café's resident cats on a wall shelf" },
+  { file = "cats", alt = "A cat peeking over the edge of a paper, and a cat drawn in white on black" },
+]
+
+# ---------------- 中文 ----------------
+[zh]
+title = "北卡罗来纳大学教堂山分校 经济系 副教授"
+description = "田粲，北卡罗来纳大学教堂山分校经济系副教授，宏观经济学家，研究企业异质性与企业动态、企业间网络（生产网络、知识网络）的演化，以及它们对经济增长与经济周期的影响。"
+body_html = """<p>我是一名宏观经济学家，研究单个企业的行为如何加总为宏观经济：企业为何在规模和生产率上存在差异，企业如何成长、进入与退出，企业之间如何建立并利用联系，以及这些对长期增长和短期波动意味着什么。</p>
+<p>研究方向：宏观经济学、企业间网络（生产网络、知识网络）的形成与演化、企业异质性与动态、创新与增长、搜寻与匹配理论、经济周期、信息摩擦。</p>
+<dl class="cv">
+<dt>2025–</dt><dd>北卡罗来纳大学教堂山分校经济系 副教授</dd>
+<dt>2018–2025</dt><dd>北卡罗来纳大学教堂山分校经济系 助理教授</dd>
+<dt>2016–2018</dt><dd>华盛顿州立大学经济科学学院 助理教授</dd>
+<dt>2014–2016</dt><dd>上海财经大学经济学院 助理教授</dd>
+<dt>2014</dt><dd>宾夕法尼亚大学 经济学博士</dd>
+<dt>2008</dt><dd>浙江大学竺可桢学院金融班与经济学院 毕业</dd>
+</dl>
+<p>邮箱：<a href="mailto:tiancan@email.unc.edu">tiancan@email.unc.edu</a> 或 <a href="mailto:tiancan.econ@gmail.com">tiancan.econ@gmail.com</a></p>
+<p>论文与研究（英文）：<a href="/research/">研究页面</a> · <a href="/files/cv.pdf">简历 (PDF)</a></p>"""
