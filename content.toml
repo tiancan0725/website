@@ -32,7 +32,7 @@ label = "ORCID"
 url = ""
 [[profile_links]]
 label = "UNC Economics"
-url = ""
+url = "https://econ.unc.edu/people/tian-can/"
 
 [people]
 "Fei Li" = "https://lifei.weebly.com/"
@@ -167,7 +167,7 @@ institution = "University of North Carolina at Chapel Hill"
 courses = [
   { code = "ECON 720", title = "Advanced Macroeconomic Theory I", level = "PhD core", terms = "2025, 2026", links = [{ label = "Fall 2026 handouts & concept map", url = "/teaching/econ720/" }] },
   { code = "ECON 822", title = "Firm Dynamics and Production Networks (formerly ECON 890)", level = "PhD field", terms = "2020, 2021, 2023, 2024", links = [{ label = "Syllabus (2020)", url = "syllabus-econ890-2020.pdf" }] },
-  { code = "ECON 423", title = "Financial Markets", level = "undergraduate", terms = "2020–2024" },
+  { code = "ECON 423", title = "Financial Markets", level = "undergraduate", terms = "2020–2026" },
   { code = "ECON 101H", title = "Introduction to Economics (Honors)", level = "undergraduate", terms = "2019", links = [{ label = "Syllabus", url = "syllabus-econ101h-2019.pdf" }] },
   { code = "Mini-lecture", title = "Visual Design in Economics Research", level = "PhD", terms = "2018", links = [{ label = "Slides", url = "visual-design-slides.pdf" }] },
 ]
@@ -213,7 +213,7 @@ decks = [
 
 # ---------------- CV (short HTML version; full PDF in static/files/cv.pdf) ----------------
 [cv]
-pdf_updated = "March 2026"
+pdf_updated = "November 2026"
 employment = [
   ["2025–", "Associate Professor, Department of Economics, University of North Carolina at Chapel Hill"],
   ["2018–2025", "Assistant Professor, Department of Economics, University of North Carolina at Chapel Hill"],

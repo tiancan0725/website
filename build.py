@@ -213,7 +213,7 @@ def home():
     links = "".join(f'<li><a href="{e(l["url"])}">{e(l["label"])}</a></li>' for l in C["profile_links"] if l.get("url"))
     tags = "".join(f"<li>{e(t[0].upper() + t[1:])}</li>" for t in S["interests"])
     body = f"""<section class="intro">
-<img src="/img/can-tian.jpg" width="411" height="385" alt="Portrait of {e(S['name'])}">
+<img src="/img/can-tian.jpg" width="600" height="750" alt="Portrait of {e(S['name'])}">
 <div>
 <h1>{e(S['name'])} <span class="muted" lang="zh-CN">{e(S['name_zh'])}</span></h1>
 <div class="title">{e(S['position'])}, {e(S['department'])}<br>{e(S['institution'])}</div>

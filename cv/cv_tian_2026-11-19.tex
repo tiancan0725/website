@@ -1,0 +1,168 @@
+% CV of Can Tian, updated 2026-11-19. Compile: pdflatex cv_tian_2026-11-19.tex (twice)
+% Plain, compact layout: one left column for years, standard fonts, no class files needed.
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=0.85in,top=0.75in,bottom=0.8in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{XCharter}
+\usepackage{microtype}
+\usepackage{tabularx,array}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks=true,allcolors=black!70!blue,pdftitle={Can Tian - CV},pdfauthor={Can Tian}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.05}
+
+% Section headings: small caps, thin rule
+\titleformat{\section}{\normalsize\bfseries\scshape}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing*{\section}{0pt}{11pt}{5pt}
+
+% Year | entry rows
+\newenvironment{entries}{\tabularx{\linewidth}{@{}>{\raggedright\arraybackslash}p{1.05in}>{\raggedright\arraybackslash}X@{}}}{\endtabularx}
+\newcommand{\paper}[3]{\textbf{#1}#2\par\vspace{1pt}{\small #3}\par\vspace{5pt}} % title, coauthors, venue
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\footnotesize\color{black!55}Can Tian --- CV, November 19, 2026}
+\fancyfoot[R]{\footnotesize\color{black!55}\thepage\ of \pageref{LastPage}}
+
+\begin{document}
+
+{\LARGE\bfseries Can Tian}\hfill{\small Updated November 19, 2026}\par
+\vspace{4pt}
+Associate Professor, Department of Economics, University of North Carolina at Chapel Hill\par
+\vspace{2pt}
+{\small Gardner Hall 202, Chapel Hill, NC 27599, USA \enspace$\cdot$\enspace
+\href{mailto:tiancan@email.unc.edu}{tiancan@email.unc.edu} \enspace$\cdot$\enspace
+\href{mailto:tiancan.econ@gmail.com}{tiancan.econ@gmail.com} \enspace$\cdot$\enspace
+\href{https://tiancan.org}{tiancan.org}}
+
+\section{Employment}
+\begin{entries}
+2025--         & Associate Professor of Economics, University of North Carolina at Chapel Hill \\
+2018--2025     & Assistant Professor of Economics, University of North Carolina at Chapel Hill \\
+2016--2018     & Assistant Professor, School of Economic Sciences, Washington State University \\
+2014--2016     & Assistant Professor, School of Economics, Shanghai University of Finance and Economics \\
+\end{entries}
+
+\section{Education}
+\begin{entries}
+2014 & Ph.D.\ Economics, University of Pennsylvania (advisor: Dirk Krueger) \\
+2008 & B.A.\ Finance, Zhejiang University \\
+\end{entries}
+
+\section{Research Interests}
+Macroeconomics, networks in macroeconomics, firm heterogeneity and dynamics, innovation and growth, search and matching, business cycles, information frictions.
+
+\section{Publications}
+\paper{\href{https://doi.org/10.1111/iere.12669}{Inventory Management in Decentralized Markets}}{\ (with Fei Li, Charles Murry, and Yiyi Zhou)}
+  {\emph{International Economic Review}, 65(1), 2024, 431--470.}
+\paper{\href{https://doi.org/10.1016/j.jet.2022.105486}{Learning and Firm Dynamics in a Stochastic Equilibrium}}{}
+  {\emph{Journal of Economic Theory}, 203, 2022, 105486.}
+\paper{\href{https://doi.org/10.1016/j.jmoneco.2020.09.001}{Input-Output Linkages in Pigouvian Industrial Fluctuations}}{}
+  {\emph{Journal of Monetary Economics}, 117, 2021, 1078--1095.}
+\paper{\href{https://doi.org/10.1016/j.euroecorev.2017.12.011}{Firm-Level Entry and Exit Dynamics over the Business Cycles}}{}
+  {\emph{European Economic Review}, 102, 2018, 298--326.}
+\paper{\href{https://doi.org/10.1016/j.jedc.2015.05.015}{Riskiness, Endogenous Productivity Dispersion and Business Cycles}}{}
+  {\emph{Journal of Economic Dynamics and Control}, 57, 2015, 227--249.}
+\paper{\href{https://doi.org/10.1016/j.jet.2012.10.004}{Directed Search and Job Rotation}}{\ (with Fei Li)}
+  {\emph{Journal of Economic Theory}, 148(3), 2013, 1268--1281.}
+
+\section{Working Papers}
+\paper{\href{https://tiancan.org/papers/intermediaries-decentralized-markets/}{Intermediaries in Decentralized Markets: Evidence from Used-Car Transactions}}{\ (with Fei Li, Charles Murry, and Yiyi Zhou)}
+  {NBER Working Paper 34136, 2025. Revision requested, \emph{Journal of Political Economy}.}
+\paper{\href{https://tiancan.org/papers/knowledge-network-dynamics/}{Innovation and Endogenous Knowledge Network Dynamics}}{\ (with Jie Cai)}
+  {July 2024.}
+
+\section{Work in Progress}
+\begin{minipage}{\linewidth}
+Sorting in Firm-to-Firm Production Networks (with Xincheng Qiu and Xinan Yan)\par\vspace{2pt}
+Search and Network Dynamics\par\vspace{2pt}
+Dynamics of Citation Networks and Structural Changes in Input-Output Linkages (with Jie Cai)
+\end{minipage}
+
+\section{Seminars}
+\begin{entries}
+2025 & University of California, Santa Barbara; Collegio Carlo Alberto; City University of Hong Kong; Xiamen University \\
+2024 & University of Virginia; University of Connecticut; Peking University \\
+2023 & University of Toronto; Chinese University of Hong Kong, Shenzhen; University of International Business and Economics; Shandong University \\
+2022 & University of North Carolina at Chapel Hill \\
+2021 & University of Pittsburgh \\
+2019 & Federal Reserve Bank of Cleveland \\
+2018 & University of North Carolina at Chapel Hill; Iowa State University; University of Tennessee; University of North Carolina at Charlotte \\
+2017 & Stony Brook University \\
+2016 & Washington State University; University of Queensland \\
+2015 & Duke University Trade Dynamic Macro Workshop; CERGE-EI; University of North Carolina at Chapel Hill; University of New South Wales; University of Queensland \\
+2014 & Federal Reserve Board of Governors \\
+\end{entries}
+
+\section{Conferences}
+\begin{entries}
+2025 & North American Winter Meeting of the Econometric Society \\
+2024 & BSE Summer Forum \\
+2023 & North American Summer Meeting of the Econometric Society \\
+2022 & SED Annual Meeting \\
+2021 & SED Annual Meeting; North American Summer Meeting of the Econometric Society; I-85 Macro Workshop \\
+2019 & I-85 Macro Workshop; Midwest Macroeconomics Meetings (Spring and Fall); North American Summer Meeting of the Econometric Society \\
+2018 & Midwest Macroeconomics Meetings (Spring and Fall) \\
+2016 & Shanghai Macroeconomics Workshop; NBER Entrepreneurship and Economic Growth \\
+2015 & World Congress of the Econometric Society \\
+2014 & North American Summer Meeting of the Econometric Society \\
+2012 & Midwest Economic Theory Conference \\
+2011 & Tsinghua Workshop in Macroeconomics; North American Summer Meeting of the Econometric Society; Asian Meeting of the Econometric Society \\
+\end{entries}
+
+\section{Teaching}
+\begin{entries}
+\multicolumn{2}{@{}l}{\emph{University of North Carolina at Chapel Hill}} \\
+2025, 2026 & ECON 720 Advanced Macroeconomic Theory I (Ph.D.\ core) \\
+2020, 2021, 2023, 2024 & ECON 822 (formerly ECON 890) Firm Dynamics and Production Networks (Ph.D.\ field) \\
+2020--2026 & ECON 423 Financial Markets (undergraduate) \\
+2019 & ECON 101H Introduction to Economics (undergraduate honors) \\
+\multicolumn{2}{@{}l}{\emph{Washington State University}} \\
+2018 & ECONS 502 Macroeconomic Theory II (Ph.D.\ core) \\
+2016--2018 & ECONS 320 Money and Banking (undergraduate) \\
+2016 & ECONS 500 Macroeconomic Theory I (Ph.D.\ core) \\
+\multicolumn{2}{@{}l}{\emph{Shanghai University of Finance and Economics}} \\
+2015--2016 & Advanced Macroeconomics (master's) \\
+\multicolumn{2}{@{}l}{\emph{University of Pennsylvania}} \\
+2011--2012 & ECON 103 Statistics for Economists (undergraduate) \\
+\end{entries}
+
+\section{Awards}
+\begin{entries}
+2008--2013 & University Fellowship, University of Pennsylvania \\
+2011--2012 & Xinmei Zhang Fellowship, University of Pennsylvania \\
+2005--2007 & First Prize, Excellent Undergraduate Scholarship, Zhejiang University \\
+\end{entries}
+
+\section{Professional Service}
+\begin{entries}
+2023-- & Co-organizer, Devils and Wolves International Economics Seminar Series \\
+2023 & Member, Midwest Economics Association Nominating Committee \\
+2022 & Mentor, CSWEP mentoring workshop for female and non-binary Ph.D.\ students \\
+Referee & \emph{Journal of Economic Theory}, \emph{Journal of Economic Dynamics and Control}, \emph{Review of Economic Dynamics}, \emph{Review of Economic Studies}, \emph{Journal of Money, Credit and Banking}, \emph{International Economic Review}, \emph{The B.E.\ Journal of Macroeconomics}, \emph{Economic Inquiry}, \emph{Journal of Macroeconomics} \\
+\end{entries}
+
+\section{University Service}
+\begin{entries}
+\multicolumn{2}{@{}l}{\emph{University of North Carolina at Chapel Hill}} \\
+2026 & TAP Recruiting Committee \\
+2025, 2026 & Graduate Committee; Ph.D.\ Qualifier Exam Committee \\
+2023--2025 & Departmental Reviewer, Study Abroad Program \\
+2022, 2024 & Tenure-Track Recruiting Committee \\
+2020, 2021 & Placement Committee \\
+2019, 2020 & Advisory Committee \\
+\multicolumn{2}{@{}l}{\emph{Washington State University}} \\
+2017, 2018 & Ph.D.\ Core Examination Committee \\
+2016, 2017 & Seminar Committee \\
+\end{entries}
+
+\end{document}
