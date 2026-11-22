@@ -238,9 +238,12 @@ referee = "Journal of Economic Theory, Journal of Economic Dynamics and Control,
 
 # ---------------- art ----------------
 [life]
-intro_html = """<p>Happily married to <a href="https://lifei.weebly.com/">Fei Li</a>, my husband, colleague, coauthor, and former classmate.</p>
-<p>A self-taught and (very) amateur artist. I'm not sure about my specialization any more…</p>"""
+intro_html = """<p>Happily married to <a href="https://lifei.weebly.com/">Fei Li</a>, my husband, colleague, coauthor, and former classmate.</p>"""
+makes_html = """<p>A self-taught and (very) amateur maker: drawings, architecture models, calligraphy, embroidery, props, and then some more. I'm not sure about my specialization any more…</p>"""
 gallery_label = "A few drawings (a small subset, subject to random updates)"
+projects = [
+  { name = "Podium", url = "https://github.com/tiancan0725/podium", image = "podium.jpg", alt = "A Beamer lecture slide annotated with pen ink in Podium on an iPad", blurb = "An iPad app for presenting Beamer slides and reading papers: ink that stays with each slide, pointers the room can follow, and a projector view that shows only the slide. In pointer mode the Apple Pencil doubles as a clicker: double-tap or squeeze to turn the page. Also side-by-side reading, and an optional AI assistant that drafts speaker notes (bring your own API key: Claude or any OpenAI-compatible provider). I built it with Claude for my own lectures. Free and open source (MIT)." },
+]
 pieces = [
   { file = "lion", alt = "Pastel drawing on black paper of a roaring lion" },
   { file = "macaw", alt = "Colored-pencil drawing of a blue hyacinth macaw" },

@@ -306,12 +306,20 @@ def life():
     figs = "".join(
         f'<a href="/img/art/{a["file"]}.jpg"><img src="/img/art/{a["file"]}-sm.jpg" width="640" height="480" loading="lazy" alt="{e(a["alt"])}"></a>'
         for a in L["pieces"])
+    projects = "".join(
+        f'<article class="project"><h3><a href="{e(x["url"])}">{e(x["name"])}</a></h3>'
+        f'<p>{e(x["blurb"])}</p>'
+        f'<a href="{e(x["url"])}"><img src="/img/{e(x["image"])}" width="1200" height="900" loading="lazy" alt="{e(x["alt"])}"></a></article>'
+        for x in L.get("projects", []))
     body = f"""<h1>Life</h1>
 {L['intro_html']}
+<h2>Things I make</h2>
+{L.get('makes_html', '')}
 <details class="drawings"><summary>{e(L['gallery_label'])}</summary>
 <div class="gallery">{figs}</div>
-</details>"""
-    return page("/life/", "Life", body, f"{S['name']} outside of economics: family, and drawings by a self-taught amateur artist.")
+</details>
+{projects}"""
+    return page("/life/", "Life", body, f"{S['name']} outside of economics: family, drawings by a self-taught amateur artist, and things she makes, like Podium, an iPad app for presenting Beamer slides.")
 
 
 def zh():
@@ -348,6 +356,8 @@ def llms_txt():
             if p.get("abstract"):
                 L.append(f"  Abstract: {p['abstract']}")
     L += ["", "## Work in progress", ""] + [f"- {w['title']}" + (f" ({', '.join(a for a in w['authors'] if a != S['name'])})" if len(w['authors']) > 1 else "") for w in C.get("in_progress", [])]
+    if C["life"].get("projects"):
+        L += ["", "## Software", ""] + [f"- [{x['name']}]({x['url']}): {x['blurb']}" for x in C["life"]["projects"]]
     prof = [f"- [{l['label']}]({l['url']})" for l in C["profile_links"] if l.get("url", "").startswith("http")]
     if prof: L += ["", "## Profiles", ""] + prof
     return "\n".join(L) + "\n"

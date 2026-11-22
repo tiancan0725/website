@@ -44,6 +44,10 @@ Research interests: macroeconomics, networks in macroeconomics, firm heterogenei
 - Search and Network Dynamics
 - Dynamics of Citation Networks and Structural Changes in Input-Output Linkages (Jie Cai)
 
+## Software
+
+- [Podium](https://github.com/tiancan0725/podium): An iPad app for presenting Beamer slides and reading papers: ink that stays with each slide, pointers the room can follow, and a projector view that shows only the slide. In pointer mode the Apple Pencil doubles as a clicker: double-tap or squeeze to turn the page. Also side-by-side reading, and an optional AI assistant that drafts speaker notes (bring your own API key: Claude or any OpenAI-compatible provider). I built it with Claude for my own lectures. Free and open source (MIT).
+
 ## Profiles
 
 - [Google Scholar](https://scholar.google.com/citations?user=oiN7Z30AAAAJ)
