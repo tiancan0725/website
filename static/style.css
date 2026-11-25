@@ -74,6 +74,7 @@ h2 + .paper { border-top: 0; padding-top: 0; }
 .meta { font: 15px/1.5 var(--sans); color: var(--muted); margin: 0 0 .35rem; }
 .meta em { font-style: italic; }
 .status { color: var(--accent-2); }
+.question { font-size: 16.5px; margin: 0 0 .3rem; }
 .actions { font: 14px/1.6 var(--sans); display: flex; flex-wrap: wrap; gap: .1rem 1rem; margin: .2rem 0 0; }
 details { margin: .4rem 0 0; }
 details summary { cursor: pointer; font: 14px/1.6 var(--sans); color: var(--accent); }

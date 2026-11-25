@@ -45,6 +45,7 @@ url = "https://econ.unc.edu/people/tian-can/"
 
 [[papers]]
 slug = "knowledge-network-dynamics"
+question = "How does the knowledge network evolve endogenously as firms form new links between technologies, and how much do these links contribute to aggregate growth?"
 kind = "working"
 title = "Innovation and Endogenous Knowledge Network Dynamics"
 authors = ["Jie Cai", "Can Tian"]
@@ -58,6 +59,9 @@ abstract = "We study innovation in evolving knowledge networks and its growth im
 
 [[papers]]
 slug = "intermediaries-decentralized-markets"
+pdf = "intermediaries-decentralized-markets-2025-08.pdf"
+pdf_label = "PDF (August 2025)"
+question = "Dealers facilitate trade in frictional decentralized markets and charge price premiums: how much surplus do they create and extract, and how do they change the division of surplus between sellers and buyers?"
 kind = "working"
 title = "Intermediaries in Decentralized Markets: Evidence from Used-Car Transactions"
 authors = ["Fei Li", "Charles Murry", "Can Tian", "Yiyi Zhou"]
@@ -74,6 +78,11 @@ abstract = "We develop and estimate a spatial search-and-bargaining model to stu
 
 [[papers]]
 slug = "inventory-management-decentralized-markets"
+pdf = "inventory-management-accepted.pdf"
+pdf_label = "Accepted manuscript (PDF)"
+notes = ["This is the peer reviewed version of the following article: Li, Murry, Tian, and Zhou (2024), Inventory Management in Decentralized Markets, International Economic Review 65(1), 431–470, which has been published in final form at https://doi.org/10.1111/iere.12669. This article may be used for non-commercial purposes in accordance with Wiley Terms and Conditions for Use of Self-Archived Versions."]
+question = "How does an intermediary, such as a used-car dealer, price and restock when search frictions make its inventory slow to replenish?"
+keywords = ["inventory", "intermediaries", "directed search", "used cars", "dealers"]
 kind = "published"
 title = "Inventory Management in Decentralized Markets"
 authors = ["Fei Li", "Charles Murry", "Can Tian", "Yiyi Zhou"]
@@ -87,6 +96,11 @@ abstract = "We present a directed search model of intermediaries' dynamic invent
 
 [[papers]]
 slug = "learning-firm-dynamics"
+pdf = "learning-firm-dynamics-accepted.pdf"
+pdf_label = "Accepted manuscript (PDF)"
+notes = ["This PDF is the accepted manuscript. © 2022 Elsevier. This manuscript version is made available under the CC BY-NC-ND 4.0 license (https://creativecommons.org/licenses/by-nc-nd/4.0/). Published version: https://doi.org/10.1016/j.jet.2022.105486"]
+question = "How does firms' learning about their own profitability shape entry, exit, growth, the firm size distribution, and the economy's response to aggregate shocks?"
+keywords = ["firm dynamics", "learning", "imperfect information", "entry and exit", "aggregate uncertainty"]
 kind = "published"
 title = "Learning and Firm Dynamics in a Stochastic Equilibrium"
 authors = ["Can Tian"]
@@ -99,6 +113,8 @@ abstract = "New firms have unknown profitability types, but they learn in the ma
 
 [[papers]]
 slug = "pigouvian-io-linkages"
+question = "When production takes time to build and future demand is uncertain, how does news about future demand travel through a production network, how does the network's shape determine when and how strongly firms respond, and when does such news cause aggregate fluctuations?"
+keywords = ["production networks", "input-output linkages", "uncertainty in production networks", "time to build", "news shocks", "expectations-driven business cycles"]
 kind = "published"
 title = "Input-Output Linkages in Pigouvian Industrial Fluctuations"
 authors = ["Can Tian"]
@@ -114,6 +130,11 @@ abstract = "Input-output linkages facilitate expectations-driven fluctuations. S
 
 [[papers]]
 slug = "entry-exit-business-cycles"
+pdf = "entry-exit-business-cycles-accepted.pdf"
+pdf_label = "Accepted manuscript (PDF)"
+notes = ["This PDF is the accepted manuscript. © 2018 Elsevier. This manuscript version is made available under the CC BY-NC-ND 4.0 license (https://creativecommons.org/licenses/by-nc-nd/4.0/). Published version: https://doi.org/10.1016/j.euroecorev.2017.12.011"]
+question = "How do firm births and firm deaths move over the U.S. business cycle?"
+keywords = ["firm entry", "firm exit", "business cycles", "Business Dynamics Statistics", "young firms"]
 kind = "published"
 title = "Firm-Level Entry and Exit Dynamics over the Business Cycles"
 authors = ["Can Tian"]
@@ -127,6 +148,11 @@ abstract = "This paper presents a set of facts on the cyclicality of firm births
 
 [[papers]]
 slug = "riskiness-dispersion-business-cycles"
+pdf = "riskiness-dispersion-accepted.pdf"
+pdf_label = "Accepted manuscript (PDF)"
+notes = ["This PDF is the accepted manuscript. © 2015 Elsevier. This manuscript version is made available under the CC BY-NC-ND 4.0 license (https://creativecommons.org/licenses/by-nc-nd/4.0/). Published version: https://doi.org/10.1016/j.jedc.2015.05.015"]
+question = "Why is productivity dispersion across firms larger in recessions?"
+keywords = ["productivity dispersion", "risk taking", "firm dynamics", "business cycles", "firm exit"]
 kind = "published"
 title = "Riskiness, Endogenous Productivity Dispersion and Business Cycles"
 authors = ["Can Tian"]
@@ -140,6 +166,11 @@ abstract = "In the data, cross-sectional productivity dispersion is countercycli
 
 [[papers]]
 slug = "directed-search-job-rotation"
+pdf = "directed-search-job-rotation-accepted.pdf"
+pdf_label = "Accepted manuscript (PDF)"
+notes = ["This PDF is the accepted manuscript. © 2013 Elsevier. This manuscript version is made available under the CC BY-NC-ND 4.0 license (https://creativecommons.org/licenses/by-nc-nd/4.0/). Published version: https://doi.org/10.1016/j.jet.2012.10.004"]
+question = "Why do larger firms pay higher wages and have lower separation rates, even when they are not more productive to begin with?"
+keywords = ["directed search", "job rotation", "firm size", "wages", "match quality"]
 kind = "published"
 title = "Directed Search and Job Rotation"
 authors = ["Fei Li", "Can Tian"]

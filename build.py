@@ -126,6 +126,7 @@ def paper_item(p):
     return f"""<article class="paper">
 <h3><a href="/papers/{p['slug']}/">{e(p['title'])}</a></h3>
 <p class="meta">{co + ' · ' if co else ''}{('<span class="status">' + venue_line(p) + '</span>') if p['kind'] != 'published' else venue_line(p)}</p>
+{('<p class="question">' + e(p['question']) + '</p>') if p.get('question') else ''}
 <p class="actions">{' '.join(acts)}</p>
 {abstract}
 </article>"""
@@ -175,6 +176,7 @@ def scholar_meta(p):
                                           for a in p["authors"]],
           "url": absu(f"/papers/{p['slug']}/")}
     if p.get("abstract"): ld["abstract"] = p["abstract"]
+    if p.get("question"): ld["description"] = p["question"]
     if p.get("year"): ld["datePublished"] = p.get("date") or str(p["year"])
     if p.get("doi"): ld["sameAs"] = f"https://doi.org/{p['doi']}"; ld["identifier"] = {"@type": "PropertyValue", "propertyID": "DOI", "value": p["doi"]}
     if p["kind"] == "published": ld["isPartOf"] = {"@type": "Periodical", "name": p["journal"]}
@@ -194,11 +196,12 @@ def paper_page(p):
 <p class="meta">{('<span class="status">' + venue_line(p) + '</span>') if p['kind'] != 'published' else venue_line(p)}</p>
 <p class="actions">{' '.join(acts)}</p>
 {notes}
+{('<h2>The question</h2><p class="abstract">' + e(p['question']) + '</p>') if p.get('question') else ''}
 {abstract}
 <h2>Cite</h2>
 <pre class="bib" id="bib">{e(bib)}</pre>
 <button class="copy" type="button" onclick="navigator.clipboard.writeText(document.getElementById('bib').innerText).then(()=>{{this.textContent='Copied'}}).catch(()=>{{this.textContent='Select the text above to copy'}})">Copy BibTeX</button>"""
-    desc = p.get("abstract") or f"{p['title']}, by {', '.join(p['authors'])}."
+    desc = " ".join(x for x in (p.get("question"), p.get("abstract")) if x) or f"{p['title']}, by {', '.join(p['authors'])}."
     if len(desc) > 300: desc = desc[:300].rsplit(" ", 1)[0] + "…"
     return page(f"/papers/{p['slug']}/", p["title"], body, desc, scholar_meta(p), og_type="article")
 
@@ -353,6 +356,8 @@ def llms_txt():
             venue = html.unescape(venue_line(p)).replace("<em>", "").replace("</em>", "")
             L.append(f"- [{p['title']}]({absu('/papers/' + p['slug'] + '/')}): {', '.join(p['authors'])}. {venue}."
                      + (f" DOI: {p['doi']}." if p.get("doi") else ""))
+            if p.get("question"):
+                L.append(f"  Question: {p['question']}")
             if p.get("abstract"):
                 L.append(f"  Abstract: {p['abstract']}")
     L += ["", "## Work in progress", ""] + [f"- {w['title']}" + (f" ({', '.join(a for a in w['authors'] if a != S['name'])})" if len(w['authors']) > 1 else "") for w in C.get("in_progress", [])]
